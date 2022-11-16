@@ -1,12 +1,13 @@
 import './App.css';
-import Button from './components/Button.jsx';
+import React from "react";
+import UserInput from './components/InputForm.jsx';
 
 function App() {
  
   return (
     <>
     <h1>Minae's version of Final Project</h1>
-    <Button />
+    <UserInput />
     </>
   );
   }
