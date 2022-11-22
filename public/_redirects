@@ -1,0 +1,11 @@
+# A file you need to have when deploying netlify and using router for the project
+# this is the file to make Netlify understood router
+# /<yourroutename>/* (all if you have pultiple paths after this) / 200
+# /<youroldroutename>/ <new paths> / 301 for permenant redirect
+# Redirects from what the browser requests to what we serve
+
+# examples
+# /home              /
+# /blog/my-post.php  /blog/my-post
+# /news              /blog
+# /cuties            https://www.petsofnetlify.com

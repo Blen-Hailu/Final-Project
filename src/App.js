@@ -7,8 +7,7 @@ function App() {
   return (
     <>
     <h1>Minae's version of Final Project</h1>
-    <UserInput 
-   />
+    <UserInput/>
     </>
   );
   }
