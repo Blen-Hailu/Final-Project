@@ -5,15 +5,16 @@ import { addCooks } from "../query.js";
 export default function UserInput ({ 
   location, imgUpload, Q, 
   place_1, place_2, place_3, 
-  option_1, option_2, option_3 }) 
-{
-  const { register, handleSubmit, formState: { errors }} = useForm();
-  const onSubmit = async () => {
-    const data = await addCooks();
-    console.log(data);
-  }; 
+  option_1, option_2, option_3 }) {
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (requestData) => {
+    const responseData = await addCooks(requestData);
+    console.log(responseData); 
+   }
+
    return (
-     <form action="POST" enctype="multipart/form-data" 
+     <form action="POST" encType="multipart/form-data" 
       onSubmit={handleSubmit(onSubmit)}>
 
       {/*First Name input form*/} 
@@ -91,8 +92,8 @@ export default function UserInput ({
       </label>
       
        {/*Submit button*/} 
-      <input type="submit">Submit</input>
+      <button type="submit">Submit</button>
       
     </form>
   );
-}
+ }
