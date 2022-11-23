@@ -9,6 +9,7 @@ export default function UserInput () {
   const { handleSubmit } = useForm();
   const onSubmit = async (requestData) => {
     const responseData = await addCooks(requestData);
+    console.log(requestData); 
     console.log(responseData); 
    }
 
@@ -17,19 +18,19 @@ export default function UserInput () {
       onSubmit={handleSubmit(onSubmit)}>
 
       {/*UserName input form*/} 
-      <InputName title='User Name'/>
+      <InputName title='User Name' query_variable='user_name'/>
      
       {/*E-mail address */} 
       <InputEmail />
 
       {/*Location - single choice*/} 
       <InputRadio 
-        place_1='Oulu' 
-        place_2='Helsinki'
-        place_3='Other cities'/>
+        option_1='Oulu' 
+        option_2='Helsinki'
+        option_3='Other cities'/>
     
        {/*Submit button*/} 
-      <button type="submit" value="Submit">SIGN UP</button>      
+      <button type="submit">SIGN UP</button>      
     </form>
   );
  }

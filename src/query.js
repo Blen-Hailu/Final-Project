@@ -6,11 +6,6 @@ const ENDPOINT_URL = "https://open-grizzly-45.hasura.app/v1/graphql";
 const SIGNUP_COOKS = `
     mutation addCooks($email: String, $service_location: String, $user_name: String) {
     insert_zestii_cooks(objects: {email: $email, service_location: $service_location, user_name: $user_name}) {
-      returning {
-        id
-        updated_at
-        created_at
-      }
       affected_rows
     }
   }
