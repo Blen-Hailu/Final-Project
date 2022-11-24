@@ -7,11 +7,14 @@ export const InputEmail =() => {
    return (
       <>
       <label>E-mail</label>
-        <input {...register("email", 
+        <input 
+        {...register("email", 
         {pattern: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
-         required: "Email Address is required"})} 
-        aria-invalid={errors.mail ? "true" : "false"}/>
-       {errors.email && <div>{errors.email.message}</div>}
+         required: "Email Address is required"})
+         }
+        id="E-mail" 
+        placeholder="e-mail address" 
+        />
       </>
    )};
 

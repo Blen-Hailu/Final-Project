@@ -7,13 +7,15 @@ export const InputName =({title, query_variable }) => {
    return (
       <>
        <label>{title}</label>
-         <input id={query_variable}
-         {...register(query_variable, 
+         <input 
+         {...register(`${query_variable}`, 
           {required: true, 
            maxLength: 20, 
            message: 'Required field',
            mode: onChange
-          })} 
+          })}
+          id={title} 
+          placeholder={title} 
          />
       </>
   )};

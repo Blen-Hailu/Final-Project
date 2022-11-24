@@ -27,10 +27,15 @@ export default function UserInput () {
       <InputRadio 
         option_1='Oulu' 
         option_2='Helsinki'
-        option_3='Other cities'/>
+        option_3='Other cities'
+        query_variable='service_location'/>
     
        {/*Submit button*/} 
-      <button type="submit">SIGN UP</button>      
+      <button type="submit">SIGN UP</button>  
+  
     </form>
+  
+
+
   );
  }
