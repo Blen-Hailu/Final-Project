@@ -1,8 +1,6 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 
-export const InputEmail =() => { 
-  const { register, formState: { errors } } = useForm();
+export const InputEmail =({ register }) => { 
 
    return (
       <>

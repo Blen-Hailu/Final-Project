@@ -1,8 +1,7 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 
-export const InputName =({title, query_variable }) => { 
-  const { register } = useForm();
+
+export const InputName =({title, query_variable, register }) => { 
   const onChange = (data) => console.log(data); 
    return (
       <>

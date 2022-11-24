@@ -6,7 +6,7 @@ import { InputName } from "./InputName.jsx";
 import { InputRadio } from "./InputRadio.jsx";
 
 export default function UserInput () {
-  const { handleSubmit } = useForm();
+  const { handleSubmit, register } = useForm();
   const onSubmit = async (requestData) => {
     const responseData = await addCooks(requestData);
     console.log(requestData); 
@@ -18,17 +18,18 @@ export default function UserInput () {
       onSubmit={handleSubmit(onSubmit)}>
 
       {/*UserName input form*/} 
-      <InputName title='User Name' query_variable='user_name'/>
+      <InputName register={register} title='User Name' query_variable='user_name'/>
      
       {/*E-mail address */} 
-      <InputEmail />
+      <InputEmail register={register}  />
 
       {/*Location - single choice*/} 
       <InputRadio 
         option_1='Oulu' 
         option_2='Helsinki'
         option_3='Other cities'
-        query_variable='service_location'/>
+        query_variable='service_location'
+        register={register} />
     
        {/*Submit button*/} 
       <button type="submit">SIGN UP</button>  

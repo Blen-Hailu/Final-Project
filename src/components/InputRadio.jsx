@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from 'react';
-import { useForm } from "react-hook-form";
 
-export const InputRadio =({option_1, option_2, option_3, query_variable }) => { 
-    const { register } = useForm();
+export const InputRadio =({option_1, option_2, option_3, query_variable, register }) => { 
     //data
     const items = [option_1,option_2,option_3];
     //useState
