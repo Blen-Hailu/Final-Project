@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { addCooks } from "../query.js";
 import { InputEmail } from "./InputEmail.jsx";
-import { InputName } from "./InputName.jsx";
+import { InputTextRequired } from "./InputTextRequired.jsx";
 import { InputRadio } from "./InputRadio.jsx";
 
 export default function UserInput () {
@@ -18,7 +18,7 @@ export default function UserInput () {
       onSubmit={handleSubmit(onSubmit)}>
 
       {/*UserName input form*/} 
-      <InputName register={register} title='User Name' query_variable='user_name'/>
+      <InputTextRequired register={register} title='User Name' query_variable='user_name'/>
      
       {/*E-mail address */} 
       <InputEmail register={register}  />

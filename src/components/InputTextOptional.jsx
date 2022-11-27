@@ -1,14 +1,14 @@
 import React from "react";
 
 
-export const InputName =({title, query_variable, register }) => { 
+export const InputTextRequired =({title, query_variable, register }) => { 
   const onChange = (data) => console.log(data); 
    return (
       <>
        <label>{title}</label>
          <input 
          {...register(`${query_variable}`, 
-          {required: true, 
+          {required: false, 
            maxLength: 20, 
            message: 'Required field',
            mode: onChange

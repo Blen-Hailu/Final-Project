@@ -1,43 +1,35 @@
 import React from "react";
-  {/*WIP--- Multiple choice questions*/} 
-export const InputRadio =(props) => { 
-  const RadioOptions = () => {
+
+export const InputMultiple =({option_1,option_2,option_3, register, query_variables}) => { 
     //data
-    const items = [{place_1},{place_2},{place_3}];
+    const items = [{option_1},{option_2},{option_3}];
     //useState
-    const [value, setValue] = useState({place_1});
+    const [value, setValue] = useState("");
     //update
     const handleChange = (e) => {
       setValue(e.target.value);
     };
-
   return (
-      <>
- {/*Multiple choice questions*/} 
- <legend>{Q}</legend>
-        <fieldset {...register(Q)}>
-          <input type="checkbox" value={option_1}>{option_1}</input>
-          <input type="checkbox" value={option_2}>{option_2}</input>
-          <input type="checkbox" value={option_3}>{option_3}</input>
-        </fieldset>
-  
-
-
-       {items.map((item) => {
-          return (
-            <div key={item}>
-              <input
-                id={item}
-                type="radio"
-                value={item}
-                onChange={handleChange}
-                checked={item === value}
-              />
-              <label htmlFor={item}>{item}</label>
-            </div>
-          );
-        })}
+    <> 
+       <fieldset> 
+         <legend>{title}</legend>
+            {items.map((item) => {
+              return (
+                <label key={item}>
+                  <input
+                    {...register(`${query_variables}`)}
+                    id={item}
+                    type="checkbox"
+                    value={item}
+                    onChange={handleChange}
+                    checked={item === value}
+                  />
+                </label>
+              )
+            }
+           )
+          }
+         </fieldset>
       </>
     )
-   }
 }
