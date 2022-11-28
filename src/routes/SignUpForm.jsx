@@ -1,19 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { addCooks } from "../query.js";
-import { InputEmail } from "./InputEmail.jsx";
-import { InputTextRequired } from "./InputTextRequired.jsx";
-import { InputRadio } from "./InputRadio.jsx";
+import { InputEmail } from "../components/InputEmail.jsx";
+import { InputTextRequired } from "../components/InputTextRequired.jsx";
+import { InputRadio } from "../components/InputRadio.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function UserInput () {
+  const navigate = useNavigate();
+
   const { handleSubmit, register } = useForm();
-  const onSubmit = async (requestData) => {
+   const onSubmit = async (requestData) => {
     const responseData = await addCooks(requestData);
     console.log(requestData); 
-    console.log(responseData); 
+    console.log(responseData);
    }
 
    return (
+    <>
      <form action="POST" encType="multipart/form-data" autoComplete="on"
       onSubmit={handleSubmit(onSubmit)}>
 
@@ -30,13 +34,18 @@ export default function UserInput () {
         option_3='Other cities'
         query_variable='service_location'
         register={register} />
-    
+
+    {/*Onclick -> navigate to complete registration page*/}
+    {/*Onclick -> confirmation e-mail*/}
+    {/*Onclick -> Submission success menu*/}
+
        {/*Submit button*/} 
-      <button type="submit">SIGN UP</button>  
-  
+      <button type="submit">SIGN UP</button> 
+      
     </form>
   
-
+    <div onClick={()=>{navigate('/')}}>Back Home</div>
+    </>
 
   );
  }

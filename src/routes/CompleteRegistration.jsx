@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { addCooks } from "../query.js";
-import { InputTextRequired } from "./InputTextRequired.jsx";
-import { InputTextOptional } from "./InputTextOptional.jsx";
+import { InputTextRequired } from "../components/InputTextRequired.jsx";
+import { InputTextOptional } from "../components/InputTextOptional.jsx";
 
 export default function CompleteRegistration () {
   const { handleSubmit, register } = useForm();
@@ -44,7 +44,8 @@ export default function CompleteRegistration () {
 
        {/*Submit button*/} 
       <button type="submit">SUBMIT</button>  
-  
+      
+       {/*Skip for now and ridirect to members page -- logged in*/} 
     </form>
 
 
