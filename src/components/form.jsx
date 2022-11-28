@@ -10,7 +10,7 @@ function RegistrationForm(){
   const [role, setRole]= useState ('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
-  const [zipcode, setZipcode] = ('');
+  const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [password, setPassword] = useState('');
@@ -18,122 +18,68 @@ function RegistrationForm(){
   const [consent, setConsent] = useState('');
 
 
-
-  //states for checking errors
-  const [submitted, setSubmitted]= useState(false);
-  const[error, setError]= useState(false);
-
-
   //handling the changes in name, role and email
   const handleFirstNameChange = event => {
     setFirstName(event.target.value)
-    setSubmitted(false);
   };
   const handleLastNameChange = event => {
     setLastName(event.target.value)
-    setSubmitted(false);
   };
   const handleEmailChange = event => {
     setEmail(event.target.value)
-    setSubmitted(false);                    
   };
   const handleRoleChange =event => {
     setRole(event.target.value)
-    setSubmitted(false);
   };
   const handleStreetAddressChange =event => {
     setStreetAddress(event.target.value)
-    setSubmitted(false);
   };
   const handleZipcodeChange =event => {
     setZipcode(event.target.value)
-    setSubmitted(false);
   };
+  
   const handleCityChange =event => {
     setCity(event.target.value)
-    setSubmitted(false);
   };
   const handleCountryChange =event => {
     setCountry(event.target.value)
-    setSubmitted(false);
   };
   const handlePhoneNumberChange =event => {
     setPhoneNumber(event.target.value)
-    setSubmitted(false);
   };
   //handling the consent
   const handleConsentChange =event=> {
     setConsent(event.target.value)
-    setSubmitted(false);
   }
   //handling the password change
   const handlePasswordChange = event => {
     setPassword(event.target.value)
-    setSubmitted(false);
   };
   const handleConfirmPasswordChange = event => {
     setConfirmPassword(event.target.value)
-    setSubmitted(false);
   };
 //handling form submission
-  const handleSubmit = async(event) => {
-    event.preventDefault();
-    const onSubmitData = async(requestData) => {
-      const response = await userRegistration (requestData)
-      console.log (response);
+const addData = async function() {
+  const requestData = {first_name : firstName, last_name : lastName, email_address:email, service_type: role, street_address:streetAddress, zip_code: zipcode, city:city, country:country, phone_number:phoneNumber,password:password }  
 
-    };
-
-    if (firstName === '' || lastName === ''|| email === ''||
-    phoneNumber==='' || role === '' || streetAddress === ''|| 
-    zipcode === ''|| city=== ''|| country=== ''|| password === ''|| 
-    confirmPassword === ''|| consent === ''
-    )
-    {setError(true);
-    } else {
-      setSubmitted(true);
-      setError(false);
-      onSubmitData({firstName, lastName, email, role, phoneNumber, streetAddress, zipcode, city, country, password, confirmPassword, consent});
-    };
-  };
-  
-  //showing success message
-  const successMessage =()=>{
-    return (
-      <div
-        className="success"
-        style={{
-          display: submitted ? '' : 'none',
-        }}>
-        <h1>User {firstName + lastName} successfully registered!!</h1>
-      </div>
-    );
-  };
- 
-//showing error message if error is true 
-const errorMessage = () => {
-  return (
-    <div
-      className="error"
-      style={{
-        display: error ? '' : 'none',
-      }}>
-      <h1>Please enter all the fields</h1>
-    </div>
-  );
+    const response = await userRegistration (requestData)
+    console.log (response);
 };
-  return (
 
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const requestData = {first_name : firstName, last_name : lastName, email_address:email, service_type: role, street_address:streetAddress, zip_code: zipcode, city:city, country:country, phone_number:phoneNumber }  
+    console.log (requestData);
+     addData(requestData);
+    };
+
+  return (
 
     <div className ="registration-container">
       <div>
         <h1>Regsitration Form</h1>
       </div>
-      {/*calling to the methods*/}
-      <div className ="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
+     
         <form>
                 {/*Labels and inputs for form data */}
             <label className="label">First Name</label>
@@ -238,12 +184,12 @@ const errorMessage = () => {
               value= {consent}
               />
           
-          <button onSubmit= {handleSubmit} type="submit" className= "submit-button">
+          <button onClick= {handleSubmit} type="submit" className= "submit-button">
             Submit
           </button>
         </form>
 
     </div>
-  )
-};
+  );
+}
 export default RegistrationForm;

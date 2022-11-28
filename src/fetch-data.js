@@ -1,11 +1,22 @@
 const ENDPOINT_URL = "https://precise-ewe-30.hasura.app/v1/graphql";
 const PROFILE_QUERY = `
-    query {
-        kotibet_test {
-            first_name
-            last_name
-        }
-    }
+query GetFreelancerTable {
+  profile_freelancer_table
+{
+  id
+  city
+  country
+  email
+  first_name
+  last_name
+  password
+  phone_number
+  service_type
+  street_address
+  zipcode
+  created_at
+}
+}
 `;
 export const fetchProfile = async () => {
     const response = await fetch(ENDPOINT_URL, {
@@ -14,5 +25,6 @@ export const fetchProfile = async () => {
             query: PROFILE_QUERY
         })
     });
+  
     return await response.json();
 };

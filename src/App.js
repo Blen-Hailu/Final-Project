@@ -1,7 +1,7 @@
 import React from 'react';
 import RegistrationForm from './components/form';
 import './App.css';
-import ProfileData from './components/profile';
+import AddProfileData from './components/profile';
 function App() {
 
 
@@ -13,7 +13,7 @@ function App() {
       </div>
 
       <div>
-        <ProfileData/>
+        <AddProfileData/>
       </div>
 
     </>

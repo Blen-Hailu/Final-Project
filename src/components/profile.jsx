@@ -1,7 +1,8 @@
+import React from 'react';
 import { fetchProfile } from "../fetch-data";
 import {useState, useEffect} from 'react';
 
-const ProfileData = function (props) {
+const AddProfileData = function (props) {
   const [profileData, setProfileData] = useState();
   const fetchData = async function () {
     
@@ -13,44 +14,44 @@ const ProfileData = function (props) {
   useEffect(() => {
       fetchData();
   }, []);
-  const imageUrl = profileData && `https://cataas.com${profileData.url}`;
 
   return (
     <>
-      <div className= "container">
+      < div className = "container">
 
           <div className="card">
-              <img className="card_image" src={require('./profile-pic-female.jpg')} alt ="profile icon"/>
-              <p className="card_name">{ProfileData}</p>
+            {profileData && profileData.data.profile_freelancer_table.map((profile)=>(
+              
+            
+                <div key = {profile.id}>
+                      <img className="card_image" src={require('./profile-pic-female.jpg')} alt ="profile icon"/>
+                    
+                    <p className="card_name" > {profile.first_name} {profile.last_name}</p>
 
-                        
-              <div className="grid-container">
+                              
+                    <div className="grid-container">
 
-                <div className="grid-child-jobs-done">
-                            number of jobs done
-                </div>
+                      <div className="grid-child-jobs-done">
+                          <p>{profile.service_type}</p>
+                      </div>
 
-                <div className="grid-child-reviews">
-                            reviews
-                </div>
+                      <div className="grid-child-reviews">
+                                  <p>{profile.zipcode} + {profile.city}</p>
+                      </div>
 
-              </div>
-                      
-              <button className="btn draw-border">Message</button>
-
-          </div>
+                    </div>
         
-    
+                  </div>
+            ))}
       </div>
+    </div>
     
+              
+
+
+    </>
+  )
+};
+  export default AddProfileData;
+
   
-    {profileData && <img className="Cat" src={imageUrl} alt="A cat" />}	
-    {!profileData && <div className="Cat no-image" />}
-    <button onClick={fetchData}>Fetch a cat</button>
-    
-  </>
-  );
-  };
-  
-  
-  export default ProfileData;

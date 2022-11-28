@@ -1,16 +1,22 @@
 const ENDPOINT_URL = "https://precise-ewe-30.hasura.app/v1/graphql";
 
-const addMutation= `mutation InsertKotibetTest($first_name: String, $last_name: String, $email_address: String, $zip_code: String, $city: String, $country: String, $phone_number: String) {
-  insert_kotibet_test(objects: {first_name: $first_name, last_name: $last_name, email_address: $email_address, zip_code: $zip_code, city: $city, country: $country, phone_number: $phone_number, service_type: "", street_address: ""}) {
+const addMutation= `
+mutation InsertFreelancerTable($city: String, $country: String, $email: String, $first_name: String, $last_name: String, $password: String, $phone_number: String, $service_type: String, $street_address: String, $zipcode: String) {
+  insert_profile_freelancer_table(objects: {city: $city, country: $country, email: $email, first_name: $first_name, last_name: $last_name, password: $password, phone_number: $phone_number, service_type: $service_type, street_address: $street_address, zipcode: $zipcode}) {
     affected_rows
     returning {
-      first_name
-      last_name
-      email_address
       id
-      service_type
-      zip_code
-      city
+			city
+			country
+			email
+			first_name
+			last_name
+			password
+			phone_number
+			service_type
+			street_address
+			zipcode
+			created_at
     }
   }
 }
