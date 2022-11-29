@@ -1,13 +1,12 @@
 import React from "react";
 import Header from '../components/Header.jsx';
-import Body from '../components/Body.jsx';
 
-export default function Home () {
+export default function Catering () {
 
 return(
  <>
   <Header />
-  <Body />
+  <h2>Catering</h2>
  </>
 )
 }

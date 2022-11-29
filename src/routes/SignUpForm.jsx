@@ -14,10 +14,13 @@ export default function UserInput () {
     const responseData = await addCooks(requestData);
     console.log(requestData); 
     console.log(responseData);
+    navigate('/complete-registration');
+    
    }
 
    return (
     <>
+    {/*redirected from initial signn-up page as popup window, with skip button to close*/} 
      <form action="POST" encType="multipart/form-data" autoComplete="on"
       onSubmit={handleSubmit(onSubmit)}>
 
@@ -35,16 +38,15 @@ export default function UserInput () {
         query_variable='service_location'
         register={register} />
 
-    {/*Onclick -> navigate to complete registration page*/}
     {/*Onclick -> confirmation e-mail*/}
     {/*Onclick -> Submission success menu*/}
 
        {/*Submit button*/} 
-      <button type="submit">SIGN UP</button> 
+      <button type="submit">SIGN UP</button>
       
     </form>
   
-    <div onClick={()=>{navigate('/')}}>Back Home</div>
+    <div onClick={()=>{navigate('/Home')}}>Back Home</div>
     </>
 
   );

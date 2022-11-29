@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const InputTextRequired =({title, query_variable, register }) => { 
+export const InputTextOptional =({title, query_variable, register }) => { 
   const onChange = (data) => console.log(data); 
    return (
       <>
