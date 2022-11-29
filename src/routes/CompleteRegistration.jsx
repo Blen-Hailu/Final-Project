@@ -15,7 +15,9 @@ export default function CompleteRegistration () {
    return (
      <form action="POST" encType="multipart/form-data" autoComplete="on"
       onSubmit={handleSubmit(onSubmit)}>
-
+     
+      {/*redirected from initial sign-up page as popup window, with skip button to close*/} 
+     
       {/*Nick name*/} 
       <InputTextRequired register={register} title='Nick Name' query_variable='user_name'/>
       {/*First name*/} 

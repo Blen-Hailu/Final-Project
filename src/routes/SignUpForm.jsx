@@ -1,26 +1,45 @@
-import React from "react";
+import React,  { useEffect, useState }  from "react";
 import { useForm } from "react-hook-form";
 import { addCooks } from "../query.js";
 import { InputEmail } from "../components/InputEmail.jsx";
 import { InputTextRequired } from "../components/InputTextRequired.jsx";
 import { InputRadio } from "../components/InputRadio.jsx";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../FirebaseConfig.js";
 
 export default function UserInput () {
   const navigate = useNavigate();
-
   const { handleSubmit, register } = useForm();
-   const onSubmit = async (requestData) => {
+  
+  const onSubmit = async (requestData) => {
     const responseData = await addCooks(requestData);
+    try {
+      await createUserWithEmailAndPassword(
+      auth, requestData.email, requestData.password, requestData.name);
+      alert ("User Created Successfully")
+      } catch (error) {
+      console.log(error);
+      alert ("User creation failed");
+    }
     console.log(requestData); 
     console.log(responseData);
     navigate('/complete-registration');
-    
    }
+
+   const [user, setUser] = useState("");
+   useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
 
    return (
     <>
-    {/*redirected from initial signn-up page as popup window, with skip button to close*/} 
+    {user ? (
+       <Navigate to='/'/>) : (
+     <>   
+     <h1>Sign Up</h1>
      <form action="POST" encType="multipart/form-data" autoComplete="on"
       onSubmit={handleSubmit(onSubmit)}>
 
@@ -28,8 +47,7 @@ export default function UserInput () {
       <InputTextRequired register={register} title='User Name' query_variable='user_name'/>
      
       {/*E-mail address */} 
-      <InputEmail register={register}  />
-
+      <InputEmail register={register} />
       {/*Location - single choice*/} 
       <InputRadio 
         option_1='Oulu' 
@@ -39,15 +57,14 @@ export default function UserInput () {
         register={register} />
 
     {/*Onclick -> confirmation e-mail*/}
-    {/*Onclick -> Submission success menu*/}
 
        {/*Submit button*/} 
       <button type="submit">SIGN UP</button>
-      
     </form>
-  
-    <div onClick={()=>{navigate('/Home')}}>Back Home</div>
-    </>
 
+    <div onClick={()=>{navigate('/Home')}}>Back Home</div>
+    </>  
+    )};
+  </>
   );
  }
