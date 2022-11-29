@@ -4,6 +4,6 @@ export default function Header () {
 
 
  return (
-   <p> Header comes here - contains navigation </p>
+   <p> Header comes here </p>
  )
 };

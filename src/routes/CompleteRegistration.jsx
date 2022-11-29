@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { addCooks } from "../query.js";
-import { InputTextRequired } from "./InputTextRequired.jsx";
-import { InputTextOptional } from "./InputTextOptional.jsx";
+import { InputTextRequired } from "../components/InputTextRequired.jsx";
+import { InputTextOptional } from "../components/InputTextOptional.jsx";
+import { InputMultiple } from "../components/InputMultiple.jsx";
 
 export default function CompleteRegistration () {
   const { handleSubmit, register } = useForm();
@@ -11,8 +12,6 @@ export default function CompleteRegistration () {
     console.log(requestData); 
     console.log(responseData); 
    }
-
-    {/*redirected from initial signn-up page as popup window, with skip button to close*/} 
    return (
      <form action="POST" encType="multipart/form-data" autoComplete="on"
       onSubmit={handleSubmit(onSubmit)}>
@@ -32,11 +31,11 @@ export default function CompleteRegistration () {
      <InputTextRequired register={register} title='City' query_variable='user_name'/>
      {/*ad_4_postcode*/} 
      <InputTextRequired register={register} title='Postal Code' query_variable='user_name'/>
-     {/*ad_5_country -- paybe dropdown list? */} 
+     {/*ad_5_country -- maybe dropdown list? */} 
      <InputTextRequired register={register} title='Country' query_variable='user_name'/>  
 
      {/*activities*/} 
-     <InputMultiple register={register} title='Country' query_variable='user_name' />
+     <InputMultiple register={register}  query_variable='user_name' />
     
      {/*phone number*/}
      {/*bio text area*/}
@@ -44,7 +43,8 @@ export default function CompleteRegistration () {
 
        {/*Submit button*/} 
       <button type="submit">SUBMIT</button>  
-  
+      
+       {/*Skip for now and ridirect to members page -- logged in*/} 
     </form>
 
 

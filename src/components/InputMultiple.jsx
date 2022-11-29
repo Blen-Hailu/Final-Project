@@ -1,6 +1,7 @@
 import React from "react";
+import { useState } from 'react';
 
-export const InputMultiple =({option_1,option_2,option_3, register, query_variables}) => { 
+export const InputMultiple =({title, option_1,option_2,option_3, register, query_variables}) => { 
     //data
     const items = [{option_1},{option_2},{option_3}];
     //useState
