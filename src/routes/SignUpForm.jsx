@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { addCooks } from "../query.js";
 import { InputEmail } from "../components/InputEmail.jsx";
 import { InputTextRequired } from "../components/InputTextRequired.jsx";
+import { InputPassword } from "../components/InputPassword.jsx";
 import { InputRadio } from "../components/InputRadio.jsx";
 import { Navigate, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
@@ -37,14 +38,13 @@ export default function UserInput () {
    return (
     <>
     {user ? (
-       <Navigate to='/'/>) : (
+       <Navigate to='/MyPage'/>) : (
      <>   
-     <h1>Sign Up</h1>
      <form action="POST" encType="multipart/form-data" autoComplete="on"
       onSubmit={handleSubmit(onSubmit)}>
-
+      <h1>Sign Up</h1>
       {/*UserName input form*/} 
-      <InputTextRequired register={register} title='User Name' query_variable='user_name'/>
+      <InputTextRequired register={register} title='User Name' query_variable='user_name' type='text'/>
      
       {/*E-mail address */} 
       <InputEmail register={register} />
@@ -55,16 +55,16 @@ export default function UserInput () {
         option_3='Other cities'
         query_variable='service_location'
         register={register} />
-
-    {/*Onclick -> confirmation e-mail*/}
-
-       {/*Submit button*/} 
-      <button type="submit">SIGN UP</button>
+    
+      {/*Password*/}
+      <InputPassword register={register} />
+    
+    <button type="submit">CREATE ACCOUNT</button>
     </form>
 
-    <div onClick={()=>{navigate('/Home')}}>Back Home</div>
+    <div onClick={()=>{navigate('/')}}>Back Home</div>
     </>  
-    )};
+    )}
   </>
-  );
+  )
  }

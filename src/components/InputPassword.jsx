@@ -3,8 +3,12 @@ import React from "react";
 import { useForm } from 'react-hook-form';
 
 
-export const Password =({ register }) => { 
-   
+export const InputPassword =({ register }) => { 
+  const {
+    formState: { errors },
+    trigger,
+    watch
+    } = useForm();
 return ( 
 <>
  <label>Password</label>
@@ -18,7 +22,7 @@ return (
    {...register("password", {
    required: "You must specify a password",
    pattern: {
-   value: '^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){    1,})(?!.*\s).{8,}$',
+   value: '^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[d]){1,})(?=(.*[W]){    1,})(?!.*s).{8,}$',
    message: "Password should contain at least one number and one    special character"
    },
   minLength: {

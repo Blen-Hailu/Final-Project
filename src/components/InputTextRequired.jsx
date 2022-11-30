@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const InputTextRequired =({title, query_variable, register }) => { 
+export const InputTextRequired =({title, query_variable, register, type }) => { 
   const onChange = (data) => console.log(data); 
    return (
       <>
@@ -13,6 +13,7 @@ export const InputTextRequired =({title, query_variable, register }) => {
            message: 'Required field',
            mode: onChange
           })}
+          type={type}
           id={title} 
           placeholder={title} 
          />
