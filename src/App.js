@@ -7,8 +7,10 @@ import NotFound from './routes/404.jsx';
 import AboutUs from './routes/AboutUs.jsx';
 import Catering from './routes/Catering.jsx';
 import UserInput from './routes/SignUpForm.jsx';
-import CompleteRegistration from './routes/CompleteRegistration';
+import MyPage from './routes/MyPage.jsx';
+import LogIn from './routes/LogIn.jsx';
 import { Routes, Route} from "react-router-dom";
+
 
 function App() {
   
@@ -21,12 +23,13 @@ function App() {
            <Route path='/AboutUs' element={<AboutUs />} />
            <Route path='/Catering' element={<Catering />} />
            <Route path='/SignUp' element={<UserInput />}/> 
-           <Route path='/complete-registration' element={<CompleteRegistration />}/> 
+           <Route path='/MyPage' element={<MyPage />}/> 
+           <Route path='/LogIn' element={<LogIn />}/> 
            <Route path='*' element={<NotFound />} />
        </Routes>
     <Footer />
     </>
-  );
-  }
+  )
+  };
 
 export default App;

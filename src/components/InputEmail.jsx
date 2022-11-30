@@ -1,7 +1,9 @@
 import React from "react";
+import { useForm } from 'react-hook-form';
 
-export const InputEmail =({ register }) => { 
 
+export const InputEmail =({ register}) => { 
+   const { trigger, formState: {errors} } = useForm();
    return (
       <>
       <label>E-mail</label>
@@ -11,8 +13,11 @@ export const InputEmail =({ register }) => {
          required: "Email Address is required"})
          }
         id="E-mail" 
-        placeholder="e-mail address" 
+        placeholder="e-mail address"
+        error={Boolean(errors.email)}
+        onKeyUp={() => {trigger("email")}} 
         />
+        {errors.email && <span>Invalid Email</span>}
       </>
    )};
 
