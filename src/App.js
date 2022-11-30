@@ -1,37 +1,34 @@
 import React from 'react';
-import{Link, Route, Routes} from 'react-router-dom';
-import RegistrationForm from './components/form';
+import{NavLink, Route, Routes} from 'react-router-dom';
 import './App.css';
-import AddProfileData from './components/profile';
-import FreelancerRegsitrationForm from './components/form2';
 import {Home} from "./pages/Home";
 import {Services} from "./pages/Services";
 import {Register} from "./pages/Register";
 import {LogIn} from "./pages/LogIn";
 import{NotFound} from "./pages/NotFound";
+import{AboutUs} from "./pages/AboutUs";
 
 
 function App() {
-
 
   return (
     <>
         <nav className ="nav">
           <ul>
             <li>
-              <Link to= "/">Home</Link>
+              <NavLink to= "/Home">Home</NavLink>
             </li>
             <li>
-            <Link to= "/Services">Services</Link>
+              <NavLink to= "/AboutUs"> About Us</NavLink>
             </li>
             <li>
-              <Link to="/Register">Register</Link>
+            <NavLink to= "/Services">Services</NavLink>
             </li>
             <li>
-              <Link to= "/LogIn ">LogIn </Link>
+              <NavLink to="/Register">Join as a Freelancer</NavLink>
             </li>
             <li>
-              <Link to= "/NotFound ">NotFound </Link>
+              <NavLink to= "/LogIn ">Log In </NavLink>
             </li>
           </ul>
 
@@ -39,26 +36,13 @@ function App() {
     
         <Routes>
           <Route path= "/" element = {<Home />} />
+          <Route path= "/aboutUs" element = {<AboutUs />} />
           <Route path= "/services" element = {<Services/>} />
           <Route path= "/register" element = {<Register/>} />
           <Route path= "/logIn" element = {<LogIn/>} />
           <Route path= "*" element = {<NotFound/>} />
 
         </Routes>
-      
-      
-      <div>
-        <RegistrationForm/>
-      </div>
-      <div>
-        <FreelancerRegsitrationForm/>
-      </div>
-      <div>
-        <AddProfileData/>
-      </div>
-
-  
-
   </>
   );
 }

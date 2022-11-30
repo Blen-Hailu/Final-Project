@@ -36,7 +36,7 @@ const AddProfileData = function (props) {
                       </div>
 
                       <div className="grid-child-reviews">
-                                  <p>{profile.zipcode} + {profile.city}</p>
+                                  <p>{profile.zipcode}, {profile.city}</p>
                       </div>
 
                     </div>
