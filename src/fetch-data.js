@@ -15,6 +15,7 @@ query GetFreelancerTable {
   street_address
   zipcode
   created_at
+  picture
 }
 }
 `;

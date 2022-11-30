@@ -16,6 +16,8 @@ function RegistrationForm(){
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [consent, setConsent] = useState('');
+  const [picture, setPicture] = useState('');
+
 
 
   //handling the changes in name, role and email
@@ -58,9 +60,14 @@ function RegistrationForm(){
   const handleConfirmPasswordChange = event => {
     setConfirmPassword(event.target.value)
   };
+  const handlePictureChange = async event => {
+    const fileContent = encodeURIComponent(await event.target.files[0].text())
+    setPicture(fileContent)
+    console.log (fileContent);
+  };
 //handling form submission
 const addData = async function() {
-  const requestData = {first_name : firstName, last_name : lastName, email_address:email, service_type: role, street_address:streetAddress, zip_code: zipcode, city:city, country:country, phone_number:phoneNumber,password:password }  
+  const requestData = {first_name : firstName, last_name : lastName, email:email, service_type: role, street_address:streetAddress, zipcode: zipcode, city:city, country:country, phone_number:phoneNumber,password:password, picture:picture }  
 
     const response = await userRegistration (requestData)
     console.log (response);
@@ -143,6 +150,14 @@ const handleSubmit = (event) => {
               onChange={handleZipcodeChange}
               value={zipcode}
             />
+               <label className="label">picture</label>
+            <input
+              type="file"
+              name="picture"
+              placeholder="Upload picture Here"
+              onChange={handlePictureChange}
+              
+              />
                <label className="label">City</label>
             <input
               type="text"
