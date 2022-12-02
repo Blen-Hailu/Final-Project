@@ -1,16 +1,16 @@
 import React from 'react';
 import{NavLink, Route, Routes} from 'react-router-dom';
-import './App.css';
 import {Home} from "./pages/Home";
 import {Services} from "./pages/Services";
 import {Register} from "./pages/Register";
-import {LogIn} from "./pages/LogIn";
+import {UserLogIn} from "./pages/LogIn";
 import{NotFound} from "./pages/NotFound";
 import{AboutUs} from "./pages/AboutUs";
+import './App.css';
 
 
 function App() {
-
+  
   return (
     <>
         <nav className ="nav">
@@ -39,10 +39,12 @@ function App() {
           <Route path= "/aboutUs" element = {<AboutUs />} />
           <Route path= "/services" element = {<Services/>} />
           <Route path= "/register" element = {<Register/>} />
-          <Route path= "/logIn" element = {<LogIn/>} />
+          <Route path= "/logIn" element = {<UserLogIn/>} />
           <Route path= "*" element = {<NotFound/>} />
 
         </Routes>
+
+      <h1>KOTIBET HOME SERVICES</h1>
   </>
   );
 }
