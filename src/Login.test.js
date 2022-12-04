@@ -1,7 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import {UserLogIn} from "./pages/LogIn";
-test('renders learn react link', () => {
+
+test('Log in renders correctly', () => {
   render(<UserLogIn />);
-  const linkElement = screen.getByText(/Log In/i);
-  expect(linkElement).toBeInTheDocument();
+  const textElement = screen.getByText(/Log In/i);
+  expect(textElement).toBeInTheDocument();
 });
+ 

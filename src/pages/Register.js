@@ -1,9 +1,12 @@
 import React from 'react';
 import RegistrationForm from '../components/form';
-import {useNavigate} from 'react-router-dom';
+//import {useNavigate} from 'react-router-dom';
 
 export function Register(){
-  const navigate= useNavigate();
+  /*const navigate= useNavigate();
+ const handleClick= ()=>{
+    navigate('/Home')
+  }*/
   return(
     <>
         <h1> Regsiter as a Freelancer</h1>
@@ -11,10 +14,13 @@ export function Register(){
     <div>
         <RegistrationForm/>
     </div>
-    <div        onClick={()=> navigate('/')}> Back to Home Page 
-    </div>
+    
+  
     </>
 
 
   )
 };
+/*<div>
+<button onClick ={handleClick}>Back to Home page</button>
+</div>*/

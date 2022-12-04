@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react';
-import jwt_decode from 'jwt-decode';
+/*import {useState, useEffect} from 'react';
+import jwt_decode from 'jwt-decode';*/
 import FreelancerRegsitrationForm from '../components/form2';
 
 export function UserLogIn(){
-  const{user, setUser} =useState({});
+  /*const{user, setUser} =useState({});
   function handleCallbackResponse(response){
     console.log("Encoded JWT ID token:"+ response.credential);
     var userObject = jwt_decode(response.credential);
@@ -18,7 +18,7 @@ export function UserLogIn(){
   }
  useEffect(()=>{
   /* global google */
-  google.accounts.id.initialize({
+  /*google.accounts.id.initialize({
     client_id:"935853094554-teqh8vlhveeqgbug2h14bej5k3939pcf.apps.googleusercontent.com",
     callback: handleCallbackResponse
  });
@@ -31,21 +31,22 @@ export function UserLogIn(){
  // if we have user, show log out button
    // eslint-disable-next-line
  },[]);
+ */
   return(
     <>
     <h1> Log In </h1>
     
-    <div id="g_id_onload"
+    {/*<div id="g_id_onload"
      data-client_id="YOUR_GOOGLE_CLIENT_ID"
      data-login_uri="https://your.domain/your_login_endpoint"
      data-your_own_param_1_to_login="any_value"
      data-your_own_param_2_to_login="any_value">
-  </div>
+  </div>*/}
     <div>
         <FreelancerRegsitrationForm/>
       </div>
 
-      <div id="signInDiv">
+      {/*<div id="signInDiv">
           {Object.keys(user).length !== 0 &&
               <button onClick ={(e)=>handleSignOut()}> Sign out</button>
           };
@@ -56,8 +57,8 @@ export function UserLogIn(){
             <h3>{user.name}</h3>
           </div>
           }
-          
-      </div>
+        </div>*/}  
+      
     </>
   )
 };
