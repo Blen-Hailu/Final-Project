@@ -1,10 +1,19 @@
 import { NavLink } from "react-router-dom";
 import {FaBars, FaTimes} from 'react-icons/fa';
 import { useRef } from "react";
+import {UserAuth} from '../context/AuthContext';
 
 function Navbar(){
-
-  const navRef = useRef();
+ const {user, logOut} = UserAuth();
+ const handleSignOut = async()=>  {
+  try{
+    await logOut()
+  }catch (error){
+    console.log(error)
+  }
+ }
+ 
+ const  navRef = useRef();
   const showNavbar =() =>{
     navRef.current.classList.toggle("responsive_nav");
   }
@@ -27,8 +36,20 @@ function Navbar(){
           <NavLink to="/Register">Join as a Freelancer</NavLink>
         </li>
         <li>
-          <NavLink to= "/LogIn ">Log In </NavLink>
+          <NavLink to= "/ContactUS">Contact Us </NavLink>
         </li>
+        <li>
+          <NavLink to= "/Account ">Account </NavLink>
+        </li>
+        
+          {user?.displayName ?( 
+          <button onClick ={handleSignOut}>LogOut</button>
+          ):(
+            <li>
+            <NavLink to= "/SignIn ">Sign In </NavLink>
+          </li>
+          )}
+       
       </ul>
       <button className='nav-btn nav-close-btn'onClick ={showNavbar}>
           <FaTimes />
