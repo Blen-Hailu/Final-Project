@@ -21,7 +21,8 @@ const handleGoogleSignIn = async () => {
 useEffect (()=>{
   if(user != null){
     navigate('/account')
-  }
+  }  
+  // eslint-disable-next-line
 },[user])
 
 
