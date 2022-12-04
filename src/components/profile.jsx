@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchProfile } from "../fetch-data";
 import {useState, useEffect} from 'react';
+import './profile.css';
 
 const AddProfileData = function (props) {
   const [profileData, setProfileData] = useState();

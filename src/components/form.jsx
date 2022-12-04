@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { userRegistration } from '../insert-data';
-
+import './form.css';
 function RegistrationForm(){ 
 //states for regsitration 
   const [firstName, setFirstName] =useState('');

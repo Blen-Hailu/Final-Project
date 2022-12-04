@@ -12,12 +12,13 @@ import Protected from './components/protected';
 import Navbar from './components/Navbar';
 import './App.css';
 import { AuthContextProvider } from './context/AuthContext';
+import Footer from './components/Footer';
 
 
 export default function App() {
   
   return (
-    <>
+    <div ClassName= 'App'>
     <AuthContextProvider>
       <Navbar/>
         <Routes>
@@ -36,10 +37,13 @@ export default function App() {
               />
               <Route path= "*" element = {<NotFound/>} />
         </Routes>
+      <Footer/>
     </AuthContextProvider>
 
+    
+
   
-  </>
+  </div>
   );
   
 }

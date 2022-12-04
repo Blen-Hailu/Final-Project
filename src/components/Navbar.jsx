@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import {FaBars, FaTimes} from 'react-icons/fa';
 import { useRef } from "react";
 import {UserAuth} from '../context/AuthContext';
+import './navbar.css';
 
 function Navbar(){
  const {user, logOut} = UserAuth();
@@ -33,7 +34,7 @@ function Navbar(){
         <NavLink to= "/Services">Services</NavLink>
         </li>
         <li>
-          <NavLink to="/Register">Join as a Freelancer</NavLink>
+          <NavLink to="/Register">Register</NavLink>
         </li>
         <li>
           <NavLink to= "/ContactUS">Contact Us </NavLink>

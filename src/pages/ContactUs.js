@@ -5,3 +5,4 @@ export function ContactUs () {
     <div>Contact Us</div>
   )
 }
+

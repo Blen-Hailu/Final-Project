@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,300;1,600;1,700&display=swap');
+
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Titillium Web',sans-serif;
+}
+:root{
+  --mainColor:#29335C;
+  --mainColorLight:#5767aa;
+  --secondaryColor:#DB2B39;
+  --textColor:#eee;
+}
+.container {
+  display: grid;
+  grid-template-columns: 300px 100px 200px 100px;
+  justify-content: center;
+  align-items:flex-start;
+  height: 100vh;
+  
+}
+.registration-container{
+  background-color:var(--mainColorLight);
+  color: var(--textColor);
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 0.75em 2em;
+  letter-spacing: 0.05rem;
+  margin: 1em;
+  width: 13rem;
+}
+
+.btn:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-size: 1.2em;
+}
+
+
+.label{
+display:flex;
+align-self: flex-start;
+font-size: larger;
+color: white;
+padding: 5px;
+}
+
+.input{
+font-size: larger;
+padding: 5px;
+margin: 2px;
+
+}
+.submit-button{
+color: white;
+background-color: rgb(114, 223, 127);
+border-radius: 5px;
+font-size: larger;
+display: block;
+padding: 5px;
+margin: 10px auto;
+}
+
+.messages{
+display: flex;
+justify-content:center;
+}
+
+.error{
+display: block;
+background-color: red;
+color: white;
+height: 50px;
+padding: 5px;
+}
+
+.success{
+display: block;
+background-color: lightblue;
+color: black;
+height: 50px;
+padding: 5px;
+}
