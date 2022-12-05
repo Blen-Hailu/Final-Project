@@ -1,18 +1,19 @@
 import React from "react";
 import { UserAuth } from '../context/auth_context.js';
+import { useNavigate } from "react-router-dom";
 import CompleteRegistration from "./CompleteRegistration.jsx";
 
 const MyPage = () => {
   const { user, logOut } = UserAuth();
+  const  navigate  = useNavigate();
   const handleSignOut = async () => {
     try {
      await logOut()
-   } catch (error) {
-     console.log(error)
+     navigate('/')
+   } catch (e) {
+     console.log(e.message)
    }
   }
-
-
   return (
     <>
       <h1>My Page</h1>

@@ -1,32 +1,33 @@
-import React,  { useEffect } from "react";
+import React,  { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { auth } from "../FirebaseConfig.js";
 import { useNavigate, Link } from "react-router-dom";
 import { InputEmail } from "../components/InputEmail.jsx";
 import { InputTextRequired } from "../components/InputTextRequired.jsx";
-import { User_LogIn } from "../query.js";
 import { UserAuth } from '../context/auth_context.js';
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { GoogleButton } from 'react-google-button';
 
 
 const LogIn = () => {
-  const {googleSignIn, user} = UserAuth();
+  const {googleSignIn, signIn, user} = UserAuth();
   const navigate= useNavigate();
-
   const { handleSubmit, register } = useForm();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const onSubmit = async (requestData) => {
-    const responseData = await User_LogIn(requestData);
+
+  const onSubmit = async (e) => {
+     setError('');
     try {
-      await signInWithEmailAndPassword(
-      auth, requestData.email, requestData.password);
-      } catch (error) {
-      console.log(error);
+      await signIn (email, password);
+      navigate('/MyPage');
+      } catch (e) {
+      setEmail(email);
+      setPassword(password);
+      setError(error);
+      console.log(e.message);
       alert ("E-mail address or password is wrong");
     }
-    console.log(requestData);
-    console.log(responseData);
    }
 
    const handleGoogleSignIn = async () => {

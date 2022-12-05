@@ -1,11 +1,6 @@
 /* FirebaseConfig.js */
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-/*import { getDataBase } from "firebase/database";*/
-/*import { getAnalytics } from "firebase/analytics";*/
-
-import 'firebase/auth';
-import 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
