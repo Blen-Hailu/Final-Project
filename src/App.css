@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,300;1,600;1,700&display=swap');
 
-html body #root{
-  min-height: 100vh;
-}
-#root{
-  display: flex;
-  flex-direction: column;
-}
+
 :root{
   --mainColor:#c2dde6;
   --mainColorLight:#e8f9fd;
@@ -43,7 +37,6 @@ html body #root{
     flex-direction: column;
     align-self: flex-end;
     gap:1rem;
-  
 }
 
 .account{
@@ -57,3 +50,23 @@ html body #root{
     color:var(--textColor);
 
 }
+
+.App{
+  width:1;
+  min-height: 100vh;
+  /*max-width: 800px;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home, .signin, .services, .register, .account, .about, .contact{
+  width:100%;
+  height:100vh;
+  
+  flex-grow: 1;
+  padding:1rem;
+  overflow: auto;
+}
+

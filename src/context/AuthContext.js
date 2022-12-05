@@ -1,7 +1,6 @@
 import {useContext, createContext, useEffect}from 'react';
 import { 
    GoogleAuthProvider, 
-   signInWithPopup,
    signInWithRedirect,
    signOut, 
    onAuthStateChanged  
@@ -28,7 +27,7 @@ export const AuthContextProvider = ({children})=>{
 
     const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
       setUser(currentUser)
-      console.log ('User', currentUser)
+      console.log ('user', currentUser)
     });
     return()=> {
       unSubscribe();

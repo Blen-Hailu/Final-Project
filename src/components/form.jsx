@@ -198,12 +198,11 @@ const handleSubmit = (event) => {
               onChange= {handleConsentChange}
               value= {consent}
               />
-            <p>
               <ul>
                 <li>Your password must:
               be 8-16 characters long</li>
               </ul>
-            </p>
+          
           <button onClick= {handleSubmit} type="submit" className= "submit-button">
             Submit
           </button>

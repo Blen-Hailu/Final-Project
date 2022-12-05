@@ -19,7 +19,7 @@ import Footer from './components/Footer';
 export default function App() {
   
   return (
-    <div ClassName= 'App'>
+    <div className= 'App'>
       <div className= 'content-wrap'>
               <AuthContextProvider>
                 <Navbar/>
