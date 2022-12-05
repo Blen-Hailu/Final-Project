@@ -1,21 +1,23 @@
-import React,  { useState, useEffect } from "react";
+import React,  { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged
-} from "firebase/auth";
 import { auth } from "../FirebaseConfig.js";
-import { Navigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { InputEmail } from "../components/InputEmail.jsx";
 import { InputTextRequired } from "../components/InputTextRequired.jsx";
 import { User_LogIn } from "../query.js";
+import { UserAuth } from '../context/auth_context.js';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleButton } from 'react-google-button';
 
 
 const LogIn = () => {
+  const {googleSignIn, user} = UserAuth();
+  const navigate= useNavigate();
+
   const { handleSubmit, register } = useForm();
-  
+
   const onSubmit = async (requestData) => {
-    const responseData = await User_LogIn(requestData); 
+    const responseData = await User_LogIn(requestData);
     try {
       await signInWithEmailAndPassword(
       auth, requestData.email, requestData.password);
@@ -23,33 +25,37 @@ const LogIn = () => {
       console.log(error);
       alert ("E-mail address or password is wrong");
     }
-    console.log(requestData); 
+    console.log(requestData);
     console.log(responseData);
    }
 
-   const [user, setUser] = useState("");
-   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  });
+   const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error){
+      console.log(error)
+    }
+    };
+
+    useEffect (()=>{
+      if(user != null){
+        navigate('/MyPage')
+      }
+      // eslint-disable-next-line
+    },[user])
 
 return (
-<>
- {user ? (
-  <Navigate to={'/MyPage'} />
- ) : (
  <>
- <form action="POST" autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
-   <h2>Log In</h2>
-    <InputEmail register={register} />
-     <InputTextRequired register={register} type='password' title='Password'/>
-    <button type="submit">LOG IN</button>
-</form>
+  <form action="POST" autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
+    <h2>Log In to your account</h2>
+    <p>Don't have an account yet? <Link to='/SignUp'>Sign Up</Link></p>
+      <InputEmail register={register} />
+      <InputTextRequired register={register} type='password' title='Password'/>
+      <button type="submit">LOG IN</button>
+  </form>
+    <GoogleButton onClick ={handleGoogleSignIn}/>
 </>
-)}
-</>
-);
+)
 }
 
 

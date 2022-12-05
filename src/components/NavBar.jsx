@@ -1,12 +1,13 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { UserAuth } from '../context/auth_context.js'
 
 export default function NavBar () {
   const navMenu = [
     {'id': 1,
      'uri': '/',
      'name': 'Home',
-    }, 
+    },
     {'id': 2,
     'uri': '/AboutUs',
     'name': 'About Us',
@@ -15,28 +16,34 @@ export default function NavBar () {
      'uri': '/Catering',
      'name': 'Catering',
     },
-    {'id': 4,
-    'uri': '/SignUp',
+  {'id': 4,
+     'uri': '/SignUp',
     'name': 'Sign Up',
-   },
-   {'id': 5,
-   'uri': '/LogIn',
-   'name': 'Log In',
-  }
-  ]
+ }
+]
+
+   const { user, logOut } = UserAuth();
+   const handleSignOut = async () => {
+     try {
+      await logOut()
+    } catch (error) {
+      console.log(error)
+    }
+   }
 
   return(
     <>
       <nav>
          {navMenu.map((menu) => {
-          return (
+          return(
           <div key={menu.id}>
-           <NavLink to={menu.uri} activeClassName="active" end>{menu.name}</NavLink>
+           <NavLink to={menu.uri} end>{menu.name}</NavLink>
           </div>
           )
           }
          )}
-
+         {user?.displayName ? (
+         <button onClick={handleSignOut}>Logout</button> ) : ( <Link to='/LogIn'>Log In</Link>)}
       </nav>
    </>
   )

@@ -9,25 +9,29 @@ import Catering from './routes/Catering.jsx';
 import UserInput from './routes/SignUpForm.jsx';
 import MyPage from './routes/MyPage.jsx';
 import LogIn from './routes/LogIn.jsx';
+import PrivateRoute from "./components/PrivateRoute";
 import { Routes, Route} from "react-router-dom";
+import { AuthContextProvider } from "./context/auth_context";
 
 
 function App() {
-  
+
   return (
     <>
     <h1>Minae's version of Final Project</h1>
-     <NavBar />
-       <Routes>
-           <Route path='/' element={<Home />} />
-           <Route path='/AboutUs' element={<AboutUs />} />
-           <Route path='/Catering' element={<Catering />} />
-           <Route path='/SignUp' element={<UserInput />}/> 
-           <Route path='/MyPage' element={<MyPage />}/> 
-           <Route path='/LogIn' element={<LogIn />}/> 
-           <Route path='*' element={<NotFound />} />
-       </Routes>
-    <Footer />
+     <AuthContextProvider>
+       <NavBar />
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/AboutUs' element={<AboutUs />} />
+            <Route path='/Catering' element={<Catering />} />
+            <Route path='/SignUp' element={<UserInput />}/>
+            <Route path='/MyPage' element={<PrivateRoute><MyPage /></PrivateRoute>}/>
+            <Route path='/LogIn' element={<LogIn />}/>
+            <Route path='*' element={<NotFound />} />
+        </Routes>
+       <Footer />
+     </AuthContextProvider>
     </>
   )
   };
