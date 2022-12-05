@@ -12,13 +12,22 @@ export function Account () {
   }
 }
   return (
-    <>
+    <div className="account">
   <div>
     <p>Welcome, {user?.displayName} </p>
   </div>
+    <div className='side-div'>
+      <ul>
+        <li>Profile</li>
+        <li>Transactions</li>
+        <li>Calendar</li>
+        <li>Messages</li>
+
+      </ul>
+    </div>
     <div>
     <button onClick = {handleSignOut}>Logout</button>
     </div>
-    </>
+    </div>
   )
 };

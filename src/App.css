@@ -1,7 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,300;1,600;1,700&display=swap');
+
+html body #root{
+  min-height: 100vh;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+}
+:root{
+  --mainColor:#c2dde6;
+  --mainColorLight:#e8f9fd;
+  --secondaryColor:#59ce8f;
+  --textColor:rgb(0, 0, 0);
+
+  }
+
 .App{
   text-align:center;
-  min-height: 100vh;
   display:flex;
   flex-direction: column;
-  margin-top:auto;
+  min-height: 100vh;
+  background:linear-gradient(170deg, #c2e490 20%, #71a4dc 35%);
+}
+.App{
+  font-family: 'Titillium Web',sans-serif;
+
+}
+.side-div{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    gap:1rem;
+    background-color: #71a4dc;
+    list-style-type:none;
+}
+.side-div li{
+  list-style-type: none;
+
+}
+.side-div ul{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    gap:1rem;
+  
+}
+
+.account{
+  position:fixed;
+    flex-direction: row-reverse;
+    top:0;
+    left:0;
+    height: 100%;
+    width:25%;
+    background-color: var(--mainColor);
+    color:var(--textColor);
+
 }

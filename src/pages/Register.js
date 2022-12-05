@@ -8,7 +8,7 @@ export function Register(){
     navigate('/Home')
   }*/
   return(
-    <>
+    <div className='register'>
         <h1> Regsiter as a Freelancer</h1>
 
     <div>
@@ -16,8 +16,8 @@ export function Register(){
     </div>
     
   
-    </>
-
+    </div>
+  
 
   )
 };
