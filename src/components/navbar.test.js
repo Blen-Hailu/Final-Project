@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import {Services} from "./pages/Services";
+import Navbar from './Navbar';
+
 test('renders learn react link', () => {
-  render(<Services />);
-  const linkElement = screen.getByText(/Services/i);
+  render(<Navbar/>);
+  const linkElement = screen.getByText(/Kotibet/i);
   expect(linkElement).toBeInTheDocument();
 });

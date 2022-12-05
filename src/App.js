@@ -1,5 +1,5 @@
 import React from 'react';
-import{BrowserRouter,Route, Routes} from 'react-router-dom';
+import{Route, Routes} from 'react-router-dom';
 import {Home} from "./pages/Home";
 import {Services} from "./pages/Services";
 import {Register} from "./pages/Register";
@@ -21,7 +21,6 @@ export default function App() {
   return (
     <div ClassName= 'App'>
       <div className= 'content-wrap'>
-            <BrowserRouter>
               <AuthContextProvider>
                 <Navbar/>
                   <Routes>
@@ -41,7 +40,6 @@ export default function App() {
                         <Route path= "*" element = {<NotFound/>} />
                   </Routes>
               </AuthContextProvider>
-              </BrowserRouter>
       </div>
       <Footer/>
   
