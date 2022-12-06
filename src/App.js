@@ -20,7 +20,7 @@ import Footer from './components/Footer';
 function App() {
   
   return (
-    <>
+    <>   
               <AuthContextProvider>
                 <Navbar/>
                   <Routes>
@@ -39,15 +39,18 @@ function App() {
                         />
                         <Route path= "*" element = {<NotFound/>} />
                   </Routes>
-
-                  <div>
-          <p>LLLL</p>
-                  </div>
               </AuthContextProvider>
+        
 
-      <Footer/>
+
+                  <Footer/>
+                       
+                
+    
+
+    
+     </>
   
-  </>
   
   );
   

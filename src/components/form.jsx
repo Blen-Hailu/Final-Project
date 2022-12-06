@@ -83,7 +83,7 @@ const handleSubmit = (event) => {
         <h2 className='regis-title'>Regsitration Form</h2>
       </div>
      
-        <form className='form'>
+        <form>
                 {/*Labels and inputs for form data */}
             <label className="label">First Name</label>
             <input

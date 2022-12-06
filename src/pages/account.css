@@ -2,7 +2,7 @@
 
 .side-div{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-self: flex-end;
     gap:1rem;
     background-color: #71a4dc;
@@ -18,3 +18,9 @@
     align-self: flex-start;
     gap:1rem;
 }
+.button-account{
+  padding:15px 32px;
+  margin:4px 2px;
+  border:none;
+  background-color:var(#29335c); 
+border-radius: 8%;}

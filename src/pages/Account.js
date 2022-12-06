@@ -14,7 +14,7 @@ export function Account () {
   return (
     <div className="account">
   <div>
-    <p>Welcome, {user?.displayName} </p>
+    <h2>Welcome, {user?.displayName} </h2>
   </div>
     <div className='side-div'>
       <ul>
@@ -24,6 +24,11 @@ export function Account () {
         <li>Messages</li>
 
       </ul>
+    </div>
+    <div>
+      <a href= 'http://localhost:3000/Register'>
+      <button className='button-account'>Please build your profile by registering here</button>
+      </a>
     </div>
     <div>
     <button onClick = {handleSignOut}>Logout</button>

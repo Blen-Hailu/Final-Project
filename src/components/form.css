@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,300;1,600;1,700&display=swap');
-.register{
+form{
+  box-sizing: border-box;
+  padding:2rem;
+  display:grid;
+  border-radius: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap:2rem;
   background-color:rgb(108, 134, 126);
   color: var(--textColor);
   justify-content: center;
-  align-items:flex-start;
-  height: 100vh;}
+}
 
   input[type=text]{
     width:100%;
@@ -39,14 +44,6 @@
 .btn:focus {
   outline: 2px dotted #333838;
 }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  font-size: 1.2em;
-}
-
 
 .label{
 display:flex;

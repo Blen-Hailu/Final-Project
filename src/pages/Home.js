@@ -11,7 +11,6 @@ export function Home(){
         ))}
         </Container>
 
-        <img src='.images/app-mockup.svg'alt=''/>
 
     </>
   )

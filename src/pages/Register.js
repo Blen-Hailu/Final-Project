@@ -9,12 +9,9 @@ export function Register(){
   }*/
   return(
     <div className='register'>
-    <div>
         <RegistrationForm/>
     </div>
     
-  
-    </div>
   
 
   )

@@ -32,6 +32,7 @@ useEffect (()=>{
     <div className='max-w-[240px] m-auto py-4'>
       <GoogleButton onClick ={handleGoogleSignIn}/>
     </div>
+    
   </div>
   )
 };

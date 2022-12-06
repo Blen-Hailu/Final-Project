@@ -25,8 +25,9 @@ const AddProfileData = function (props) {
               
             
                 <div key = {profile.id}>
-                        img className="card_image" src={'data:image/jpg,'+ profile.picture} alt ="profile icon"/>
-                      {/*<img className="card_image" src=('data:image/jpg,'+ profile.picture} alt ="profile icon"/>*/}
+                  {/*<img src= {require('../images/blen.jpg')} alt=''/>*/}
+                      <img className="card_image" src={'data:image/jpg,'+ profile.picture} alt ="profile icon"/>
+                      {/*<img className="card_image" src={'data:image/jpg,'+ profile.picture} alt ="profile icon"/>*/}
                     
                     <p className="card_name" > {profile.first_name} {profile.last_name}</p>
 

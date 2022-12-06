@@ -28,7 +28,7 @@ function Navbar(){
         
           <header>
             <nav ref ={navRef}>
-
+              <div className="pageNav">
                 <ul>
                   <li>
                     <NavLink to= "/">Home</NavLink>
@@ -48,7 +48,7 @@ function Navbar(){
                   <li>
                     <NavLink to= "/Account ">Account </NavLink>
                   </li>
-                  
+
                     {user?.displayName ?( 
                     <button onClick ={handleSignOut}>LogOut</button>
                     ):(
@@ -56,17 +56,17 @@ function Navbar(){
                       <NavLink to= "/SignIn ">Sign In </NavLink>
                     </li>
                     )}
-                
                 </ul>
-          <button className='nav-btn nav-close-btn'
-          onClick ={showNavbar}>
-          <FaTimes />
-           </button>
-        </nav>
-        <button className='nav-btn' 
-        onClick ={showNavbar}>
-           <FaBars />
-        </button>
+                </div>
+              <button className='nav-btn nav-close-btn'
+              onClick ={showNavbar}>
+              <FaTimes />
+              </button>
+            </nav>
+            <button className='nav-btn' 
+            onClick ={showNavbar}>
+              <FaBars />
+            </button>
       </header>    
   </>
   )

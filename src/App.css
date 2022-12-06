@@ -23,24 +23,27 @@
 img{
   width:200px;
   height:300px;
-  object-fit: contain;
+  object-fit: contain; 
+  
   
   }
 .contactUsPage{
-  background-color: lightgrey;
-  width: 320px;
-  border: 5px solid rgb(58, 58, 58);
-  padding: 10px;
-  margin: 0px;
-  @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }}
+  box-sizing: border-box;
+  padding:2rem;
+  display:grid;
+  border-radius: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap:2rem;
+  background-color: #cccccc;
+  background-image: radial-gradient(rgb(43, 57, 78), rgb(0, 255, 251));
+  color: var(--textColor);
+  justify-content: center;
+  
 }
 .contctUsDiv{
   display: flex;
-  flex-direction:; 
+  flex-direction:
+
 }
     
 
