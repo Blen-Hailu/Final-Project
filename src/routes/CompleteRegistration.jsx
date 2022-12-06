@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { updateCooks } from "../query.js";
+import { addCooks } from "../query.js";
 import { InputTextRequired } from "../components/InputTextRequired.jsx";
 import { InputTextOptional } from "../components/InputTextOptional.jsx";
 import { InputMultiple } from "../components/InputMultiple.jsx";
@@ -9,7 +9,7 @@ import { ImageUpload } from "../components/ImageUpload";
 export default function CompleteRegistration () {
   const { handleSubmit, register } = useForm();
    const onSubmit = async (requestData) => {
-    const responseData = await updateCooks(requestData);
+    const responseData = await addCooks(requestData);
     console.log(requestData);
     console.log(responseData);
    }

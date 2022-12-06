@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { UserAuth } from '../context/auth_context.js';
 
 const Login = () => {
-  const {googleSignIn, signIn, user, setLoggedIn} = UserAuth();
+  const {signIn, user, setLoggedIn} = UserAuth();
   const navigate= useNavigate();
 
   const [email, setEmail] = useState("");
@@ -22,14 +22,14 @@ const Login = () => {
 
   };
 
-   const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn();
-      navigate('/MyPage');
-    } catch (error){
-      console.log(error)
-    }
-    };
+  //  const handleGoogleSignIn = async () => {
+  //   try {
+  //     await googleSignIn();
+  //     navigate('/MyPage');
+  //   } catch (error){
+  //     console.log(error)
+  //   }
+  //   };
 
     useEffect (()=>{
       if(user != null) {
@@ -61,13 +61,13 @@ const Login = () => {
         <button type="submit">Login</button>
         </form>
         <hr />
-        <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
+        {/* <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="logo"
           />
           Login With Google
-        </button>
+        </button> */}
         <span>{error}</span>
 
     </div>

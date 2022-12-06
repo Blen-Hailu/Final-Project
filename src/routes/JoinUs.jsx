@@ -5,7 +5,7 @@ import GDPRConsent from "../components/GDPRConsent.jsx";
 
 
 const JoinUs = () => {
-  const {createUser, googleSignIn, setLoggedIn, user} = UserAuth();
+  const {createUser, setLoggedIn, user} = UserAuth();
   const navigate= useNavigate();
 
   const [email, setEmail] = useState("");
@@ -25,14 +25,14 @@ const JoinUs = () => {
     console.log(createUser);
   };
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn();
-      navigate('/MyPage');
-    } catch (error){
-      console.log(error)
-    }
-    };
+  // const handleGoogleSignIn = async () => {
+  //   try {
+  //     await googleSignIn();
+  //     navigate('/MyPage');
+  //   } catch (error){
+  //     console.log(error)
+  //   }
+  //   };
 
     useEffect (() => {
       if(user != null) {
@@ -63,13 +63,13 @@ const JoinUs = () => {
            <button type="submit">Sign Up</button>
         </form>
         <hr />
-        <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
+        {/* <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="logo"
           />
           Sign Up With Google
-        </button>
+        </button> */}
         <GDPRConsent />
         <span>{error}</span>
 
