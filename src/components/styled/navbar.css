@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,300;1,600;1,700&display=swap');
+
+
+header {
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-between;
+  height: 400%;
+  padding: 0 1rem;
+  background-color:var(--mainColor);
+  color:var(--textColor);
+}
+
+nav a{
+  margin: 0 1rem;
+  color:var(--textColor);
+  text-decoration: none;
+}
+ nav a:hover{
+  color:var(--secondaryColor)
+ }
+
+header.nav-btn{
+  padding: 5px;
+  cursor: pointer;
+  background:transparent ;
+  border: none;
+  outline: none;
+  color:var(--textColor);
+  visibility:hidden;
+  opacity: 0;
+  font-size: 1.8 rem;
+}
+button .nav-close-btn{
+  visibility: hidden;
+}
+button .nav-btn{
+  visibility: hidden;
+}
+
+@media only screen and (max-width:1024px){
+
+  button.nav-btn{
+    visibility:visible;
+    opacity:1;
+  }
+  button .nav-close-btn{
+    visibility:visible;
+    opacity:1;
+  }
+  .header {
+    position:fixed;
+    flex-direction: row-reverse;
+    top:0;
+    left:0;
+    height: 100%;
+    width:25%;
+    background-color: var(--mainColor);
+    color:var(--textColor);
+    transition:1s;
+    transform: translate(-100vh);
+  }
+  .header ul{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    gap:1rem;
+  }
+  .header .responsive_nav{
+    transform:translateY(13%);
+  }
+
+  button .nav-close-btn{
+  position:absolute;
+  top: 2rem;
+  right: 1rem;
+
+  }
+  a .active {
+    font-size: 1.5rem;
+  }
+};
+
+
+.nav ul{
+  display:flex;
+  list-style-type:none;
+}
+a{
+  color: var(--textColor);
+  text-decoration: none;
+  align-items: stretch;
+  padding: 1rem;
+} 
+a .active{
+  margin:0 2rem;
+  color:var(--secondaryColor);
+  text-decoration:none;
+  gap: 2 rem
+}
