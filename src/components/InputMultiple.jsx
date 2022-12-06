@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
 
-export const InputMultiple =({Q, option_1,option_2,option_3, register, query_variables}) => {
+export const InputMultiple =({Q, option_1,option_2,option_3, register, query_variable}) => {
     const { formState: {errors} } = useForm();
     //data
     const items = [option_1,option_2,option_3];
+    // const query_variables = items.join(";");
   return (
     <>
        <fieldset>
@@ -14,7 +15,7 @@ export const InputMultiple =({Q, option_1,option_2,option_3, register, query_var
             <input
               type="checkbox"
               value={item}
-              {...register(`${query_variables}`)}
+              {...register(`${query_variable}`)}
             />
             <label htmlFor={item}>{item}</label>
           </div>

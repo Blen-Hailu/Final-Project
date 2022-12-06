@@ -7,6 +7,7 @@ import { InputMultiple } from "../components/InputMultiple.jsx";
 import { InputTextArea } from "../components/InputTextArea.jsx";
 import { ImageUpload } from "../components/ImageUpload";
 import { PhoneNumberInput } from "../components/InputPhone.jsx";
+import { InputRadio } from "../components/InputRadio.jsx";
 
 export default function CompleteRegistration () {
   const { handleSubmit, register } = useForm();
@@ -25,8 +26,6 @@ export default function CompleteRegistration () {
           <InputTextRequired register={register} title='First name' query_variable='first_name' type='text'/>
           {/*Sur name*/}
           <InputTextRequired register={register} title='Sur name' query_variable='sur_name' type='text'/>
-          {/*Bio*/}
-          <InputTextArea register={register} title='Tell us about your self!' query_variable='bio' max={300} />
 
           {/*ad_1_street*/}
           <InputTextRequired register={register} title='StreetAddress' query_variable='ad_1_street' type='text'/>
@@ -43,21 +42,21 @@ export default function CompleteRegistration () {
 
           {/*Hygienipassi*/}
           <InputTextRequired register={register} title='Hygienipassi certificate number' query_variable='hygienipassi' type='text'/>
-          {/*Hygienipassi*/}
+          {/*Alcoholpassi*/}
           <InputTextOptional register={register} title='Alcoholpassi certificate number' query_variable='alcoholpassi' type='text'/>
 
           {/*activities*/}
-          <InputMultiple register={register} Q={'What kind of activity are you interested in as a cook?'} option_1='Pop Up Events' option_2='Catering Cook' option_3='Workshop Instructor' query_variable='activities' />
+          <InputRadio register={register} Q={'What kind of activity are you interested in as a cook?'} option_1='Pop Up Events' option_2='Catering Cook' option_3='Workshop Instructor' query_variable='activities'/>
 
           {/*Bio*/}
           <InputTextArea register={register} title='Tell us about your self!' query_variable='bio' max={300} />
-          {/*Profile image upload*/}
-          <ImageUpload />
+          {/* Profile image upload
+          <ImageUpload register={register} query_variable='profile_picture' /> */}
 
           {/*Signature dish Text*/}
-          <InputTextArea register={register} title='Tell us about your self!' query_variable='bio' max={300} />
-          {/*Signature dish image upload*/}
-          <ImageUpload />
+          <InputTextArea register={register} title='Tell us about your signature dish!' query_variable='signature_dishes' max={300} />
+          {/* Signature dish image upload
+          <ImageUpload register={register} query_variable='signature_dishes_picture' /> */}
 
           {/*Submit button*/}
           <button type="submit">SUBMIT</button>
