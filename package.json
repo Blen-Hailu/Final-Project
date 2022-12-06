@@ -18,6 +18,7 @@
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
     "react-hook-form": "^7.39.4",
+    "react-phone-number-input": "^3.2.13",
     "react-router": "^6.4.3",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.11"
   }
 }
