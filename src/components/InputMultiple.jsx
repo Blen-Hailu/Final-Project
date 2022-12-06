@@ -1,36 +1,26 @@
 import React from "react";
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-export const InputMultiple =({title, option_1,option_2,option_3, register, query_variables}) => { 
+export const InputMultiple =({Q, option_1,option_2,option_3, register, query_variable}) => {
+    const { formState: {errors} } = useForm();
     //data
-    const items = [{option_1},{option_2},{option_3}];
-    //useState
-    const [value, setValue] = useState("");
-    //update
-    const handleChange = (e) => {
-      setValue(e.target.value);
-    };
+    const items = [option_1,option_2,option_3];
+    // const query_variables = items.join(";");
   return (
-    <> 
-       <fieldset> 
-         <legend>{title}</legend>
-            {items.map((item) => {
-              return (
-                <label key={item}>
-                  <input
-                    {...register(`${query_variables}`)}
-                    id={item}
-                    type="checkbox"
-                    value={item}
-                    onChange={handleChange}
-                    checked={item === value}
-                  />
-                </label>
-              )
-            }
-           )
-          }
-         </fieldset>
+    <>
+       <fieldset>
+        <legend>{Q}</legend>
+        {items.map((item) => (
+          <div key={item}>
+            <input
+              type="checkbox"
+              value={item}
+              {...register(`${query_variable}`)}
+            />
+            <label htmlFor={item}>{item}</label>
+          </div>
+        ))}
+        </fieldset>
       </>
     )
 }
