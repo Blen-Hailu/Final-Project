@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Header from './Header.jsx';
 import { fetch_cooks } from '../query.js';
 
 export const Profile = (props) => {
    const [cooksData, setCooksData] = useState();
-   const fetchData = async function (response) {
-      const data = await response.json(fetch_cooks);
+   const fetchData = async function () {
+      const data = await fetch_cooks();
       setCooksData(data);
   };
 
@@ -16,7 +15,6 @@ export const Profile = (props) => {
   // const imageUrl = catData && `https://cataas.com${catData.url}`;
 return (
   <>
-  <Header />
   < div className = "container">
           <div className="card">
             {cooksData && cooksData.data.zestii_cooks.map((data)=>(
