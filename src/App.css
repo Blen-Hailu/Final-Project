@@ -24,8 +24,12 @@ img{
   width:200px;
   height:300px;
   object-fit: contain; 
-  
-  
+  }
+  .img2{
+    width:200px;
+    height:300px;
+    object-fit: contain; 
+    float:right;
   }
 .contactUsPage{
   box-sizing: border-box;
