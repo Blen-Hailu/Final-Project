@@ -40,10 +40,9 @@ img{
   justify-content: center;
   
 }
-.contctUsDiv{
+.contactUsDiv{
   display: flex;
-  flex-direction:
-
+  flex-direction:row;
 }
     
 
