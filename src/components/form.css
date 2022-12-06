@@ -1,28 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,300;1,600;1,700&display=swap');
-
-*{
-  padding:0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Titillium Web',sans-serif;
-}
-:root{
-  --mainColor:#29335C;
-  --mainColorLight:#5767aa;
-  --secondaryColor:#DB2B39;
-  --textColor:#eee;
-}
-.container {
-  display: grid;
-  grid-template-columns: 300px 100px 200px 100px;
+.register{
+  background-color:rgb(108, 134, 126);
+  color: var(--textColor);
   justify-content: center;
   align-items:flex-start;
-  height: 100vh;
-  
-}
-.registration-container{
-  background-color:var(--mainColorLight);
-  color: var(--textColor);
+  height: 100vh;}
+
+  input[type=text]{
+    width:100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=email]{
+    width:100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: rgb(190, 250, 230);
+
+  }
+  input[type=text]{
+  background-color: rgb(190, 250, 230);
 }
 
 .btn {
@@ -38,7 +37,7 @@
 }
 
 .btn:focus {
-  outline: 2px dotted #55d7dc;
+  outline: 2px dotted #333838;
 }
 
 .grid-container {
@@ -53,7 +52,7 @@
 display:flex;
 align-self: flex-start;
 font-size: larger;
-color: white;
+color: var(--textColor);
 padding: 5px;
 }
 
@@ -65,7 +64,7 @@ margin: 2px;
 }
 .submit-button{
 color: white;
-background-color: rgb(114, 223, 127);
+background-color: rgb(46, 62, 48);
 border-radius: 5px;
 font-size: larger;
 display: block;
@@ -93,3 +92,11 @@ color: black;
 height: 50px;
 padding: 5px;
 }
+.regis-title{
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }}

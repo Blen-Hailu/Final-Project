@@ -2,6 +2,10 @@ import React from 'react';
 import {useState} from 'react';
 import { userRegistration } from '../insert-data';
 import './form.css';
+
+
+
+
 function RegistrationForm(){ 
 //states for regsitration 
   const [firstName, setFirstName] =useState('');
@@ -13,8 +17,6 @@ function RegistrationForm(){
   const [zipcode, setZipcode] = useState('');
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [consent, setConsent] = useState('');
   const [picture, setPicture] = useState('');
 
@@ -53,13 +55,7 @@ function RegistrationForm(){
   const handleConsentChange =event=> {
     setConsent(event.target.value)
   }
-  //handling the password change
-  const handlePasswordChange = event => {
-    setPassword(event.target.value)
-  };
-  const handleConfirmPasswordChange = event => {
-    setConfirmPassword(event.target.value)
-  };
+  
   const handlePictureChange = async event => {
     const fileContent = encodeURIComponent(await event.target.files[0].text())
     setPicture(fileContent)
@@ -67,7 +63,7 @@ function RegistrationForm(){
   };
 //handling form submission
 const addData = async function() {
-  const requestData = {first_name : firstName, last_name : lastName, email:email, service_type: role, street_address:streetAddress, zipcode: zipcode, city:city, country:country, phone_number:phoneNumber,password:password, picture:picture }  
+  const requestData = {first_name : firstName, last_name : lastName, email:email, service_type: role, street_address:streetAddress, zipcode: zipcode, city:city, country:country, phone_number:phoneNumber, picture:picture }  
 
     const response = await userRegistration (requestData)
     console.log (response);
@@ -84,10 +80,10 @@ const handleSubmit = (event) => {
 
     <div className ="registration-container">
       <div>
-        <h1>Regsitration Form</h1>
+        <h2 className='regis-title'>Regsitration Form</h2>
       </div>
      
-        <form>
+        <form className='form'>
                 {/*Labels and inputs for form data */}
             <label className="label">First Name</label>
             <input
@@ -174,23 +170,6 @@ const handleSubmit = (event) => {
               onChange={handleCountryChange}
               value={country}
             />
-              <label className="label">Password</label>
-            <input
-              type="form-input"
-              name="password"
-              placeholder="Enter Password"
-              onChange={handlePasswordChange}
-              value={password}  
-              />
-              <label className="label">Confirm Passowrd</label>
-            <input
-              type="form-input"
-              name="password"
-              placeholder="Confirm your password"
-              onChange={handleConfirmPasswordChange}
-              value={confirmPassword}
-              />
-
               <label className ="label" htmlFor ="terms">You Must Agree to Our Terms and Conditions.</label>
               <input
               type= "checkbox"
@@ -198,14 +177,11 @@ const handleSubmit = (event) => {
               onChange= {handleConsentChange}
               value= {consent}
               />
-              <ul>
-                <li>Your password must:
-              be 8-16 characters long</li>
-              </ul>
           
-          <button onClick= {handleSubmit} type="submit" className= "submit-button">
-            Submit
-          </button>
+          
+            <button onClick= {handleSubmit} type="submit" className= "submit-button">
+              Submit
+            </button>
         </form>
 
     </div>

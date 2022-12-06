@@ -1,0 +1,20 @@
+
+
+.side-div{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    gap:1rem;
+    background-color: #71a4dc;
+    list-style-type:none;
+}
+.side-div li{
+  list-style-type: none;
+
+}
+.side-div ul{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap:1rem;
+}

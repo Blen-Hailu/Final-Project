@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserAuth } from '../context/AuthContext';
-
+import './account.css';
 
 export function Account () {
   const {logOut, user} = UserAuth();

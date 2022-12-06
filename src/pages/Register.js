@@ -9,8 +9,6 @@ export function Register(){
   }*/
   return(
     <div className='register'>
-        <h1> Regsiter as a Freelancer</h1>
-
     <div>
         <RegistrationForm/>
     </div>

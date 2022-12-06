@@ -16,11 +16,11 @@ import { AuthContextProvider } from './context/AuthContext';
 import Footer from './components/Footer';
 
 
-export default function App() {
+
+function App() {
   
   return (
-    <div className= 'App'>
-      <div className= 'content-wrap'>
+    <>
               <AuthContextProvider>
                 <Navbar/>
                   <Routes>
@@ -39,12 +39,17 @@ export default function App() {
                         />
                         <Route path= "*" element = {<NotFound/>} />
                   </Routes>
+
+                  <div>
+          <p>LLLL</p>
+                  </div>
               </AuthContextProvider>
-      </div>
+
       <Footer/>
   
-  </div>
+  </>
+  
   );
   
 };
-
+export default App;
