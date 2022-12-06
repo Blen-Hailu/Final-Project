@@ -6,7 +6,7 @@ import Footer from './components/Footer.jsx';
 import NotFound from './routes/404.jsx';
 import AboutUs from './routes/AboutUs.jsx';
 import Catering from './routes/Catering.jsx';
-import UserInput from './routes/SignUpForm.jsx';
+import JoinUs from './routes/JoinUs.jsx';
 import MyPage from './routes/MyPage.jsx';
 import LogIn from './routes/LogIn.jsx';
 import PrivateRoute from "./components/PrivateRoute";
@@ -25,7 +25,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/AboutUs' element={<AboutUs />} />
             <Route path='/Catering' element={<Catering />} />
-            <Route path='/SignUp' element={<UserInput />}/>
+            <Route path='/JoinUs' element={<JoinUs />}/>
             <Route path='/MyPage' element={<PrivateRoute><MyPage /></PrivateRoute>}/>
             <Route path='/LogIn' element={<LogIn />}/>
             <Route path='*' element={<NotFound />} />

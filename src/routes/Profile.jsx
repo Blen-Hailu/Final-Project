@@ -23,8 +23,8 @@ return (
   <Header />
   <div>Profile Picture Here</div>
   <div>Bio text</div>
-  {catData && <img className="Cat" src={imageUrl} alt="A cat" />}	
-      {!catData && <div className="Cat no-image" />}
+  {/* {catData && <img className="Cat" src={imageUrl} alt="A cat" />}	 */}
+      {/* {!catData && <div className="Cat no-image" />} */}
 
   <Footer />
   </>

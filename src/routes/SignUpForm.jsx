@@ -1,41 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { addCooks } from "../query.js";
 import { InputEmail } from "../components/InputEmail.jsx";
 import { InputPassword } from "../components/InputPassword.jsx";
 import { useNavigate, Link } from "react-router-dom";
 import { UserAuth } from '../context/auth_context.js';
-import { GoogleButton } from 'react-google-button';
+
 
 export default function UserInput () {
-  const navigate = useNavigate();
   const { handleSubmit, register } = useForm();
-  const {createUser, googleSignIn} = UserAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const {createUser, googleSignIn, user} = UserAuth();
 
-
-  const onSubmit = async (e) => {
-      setError('');
-      try {
-      await createUser(email, password);
-      navigate('/MyPage')
-      } catch (e) {
-      setEmail(email);
-      setPassword(password);
-      setError(error);
-      console.log(e.message);
-      alert ("User creation failed");
+  const onSubmit = async (requestData) => {
+   const responseData = await addCooks(requestData);
+      console.log(requestData);
+      console.log(responseData);
     }
-   }
+
+   };
 
    const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
+      navigate('/MyPage')
     } catch (error){
       console.log(error);
     }
     };
+    useEffect (() => {
+      if(user != null) {
+        navigate('/MyPage')
+      }
+      //eslint-disable-next-line
+    }, [user])
 
    return (
     <>
@@ -49,7 +47,16 @@ export default function UserInput () {
             <InputPassword register={register} />
           <button type="submit">CREATE ACCOUNT</button>
     </form>
-    <GoogleButton onClick ={handleGoogleSignIn}/>
+    <button className="googleBtn" type="button" onClick={e => handleGoogleSignIn(e)}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            alt="logo"
+          />
+          Join With Google
+        </button>
+        <GDPRConsent />
+
+
     <div onClick={()=>{navigate('/')}}>Back Home</div>
     </>
    )

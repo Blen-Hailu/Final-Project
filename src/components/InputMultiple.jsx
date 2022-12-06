@@ -1,36 +1,23 @@
 import React from "react";
-import { useState } from 'react';
 
-export const InputMultiple =({title, option_1,option_2,option_3, register, query_variables}) => { 
+export const InputMultiple =({title, option_1,option_2,option_3, register, query_variables}) => {
     //data
-    const items = [{option_1},{option_2},{option_3}];
-    //useState
-    const [value, setValue] = useState("");
-    //update
-    const handleChange = (e) => {
-      setValue(e.target.value);
-    };
+    const items = [option_1,option_2,option_3];
   return (
-    <> 
-       <fieldset> 
-         <legend>{title}</legend>
-            {items.map((item) => {
-              return (
-                <label key={item}>
-                  <input
-                    {...register(`${query_variables}`)}
-                    id={item}
-                    type="checkbox"
-                    value={item}
-                    onChange={handleChange}
-                    checked={item === value}
-                  />
-                </label>
-              )
-            }
-           )
-          }
-         </fieldset>
+    <>
+       <fieldset>
+        <legend>{title}</legend>
+        {items.map((item) => (
+          <div key={item}>
+            <input
+              type="checkbox"
+              value={item}
+              {...register(`${query_variables}`)}
+            />
+            <label htmlFor={item}>{item}</label>
+          </div>
+        ))}
+        </fieldset>
       </>
     )
 }

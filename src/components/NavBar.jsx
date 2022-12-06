@@ -42,9 +42,8 @@ export default function NavBar () {
           )
           }
          )}
-
          {user?.displayName ?(
-         <button onClick={handleSignOut}>Logout</button> ) : ( <NavLink to='/LogIn'>Log In</NavLink> )}
+         <button onClick={handleSignOut}>Logout</button> ) : ( <NavLink to='/LogIn'>Login</NavLink> )}
       </nav>
    </>
   )

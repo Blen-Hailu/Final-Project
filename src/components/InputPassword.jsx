@@ -1,15 +1,14 @@
-
 import React from "react";
 import { useForm } from 'react-hook-form';
 
 
-export const InputPassword =({ register }) => { 
+export const InputPassword =({ register }) => {
   const {
     formState: { errors },
     trigger,
     watch
     } = useForm();
-return ( 
+return (
 <>
  <label>Password</label>
   <input
@@ -17,7 +16,6 @@ return (
    id="password"
    type= 'password'
    autoComplete='off'
-   className={`form-control ${errors.password && "invalid"}`}
    required={true}
    {...register("password", {
    required: "You must specify a password",
@@ -34,8 +32,7 @@ return (
   message: "Password must be less than 20 characters"
   },
   })}
-  onKeyUp={() => {trigger("password")}}
-  error={Boolean(errors.password)}
+  error={errors.password}
 >
 
 </input>
@@ -57,8 +54,7 @@ return (
            e.preventDefault();
            return false
            }}
-           error={Boolean(errors.confirmPassword)}
-           className={`form-control ${errors.confirmPassword && "invalid"}`}
+           error={errors.confirmPassword}
            required={true}
            onKeyUp={() => {trigger("confirmPassowrd")}}
          />

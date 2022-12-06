@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { UserAuth } from '../context/auth_context.js';
+import { useNavigate, Link } from "react-router-dom";
+import GDPRConsent from "../components/GDPRConsent.jsx";
 
-const Login = () => {
-  const {googleSignIn, signIn, user, setLoggedIn} = UserAuth();
+
+const JoinUs = () => {
+  const {createUser, googleSignIn, setLoggedIn, user} = UserAuth();
   const navigate= useNavigate();
 
   const [email, setEmail] = useState("");
@@ -13,16 +15,17 @@ const Login = () => {
   const handleForm = async (e) => {
     e.preventDefault();
     try {
-      await signIn(email, password);
+      await createUser(email, password);
       setLoggedIn(true);
+      alert ("User Created Successfully")
       } catch (e) {
       console.log(e.message);
+      alert ("User creation failed");
     }
-    console.log(signIn);
-
+    console.log(createUser);
   };
 
-   const handleGoogleSignIn = async () => {
+  const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
       navigate('/MyPage');
@@ -31,18 +34,17 @@ const Login = () => {
     }
     };
 
-    useEffect (()=>{
+    useEffect (() => {
       if(user != null) {
-        navigate('/MyPage')
+      navigate('/MyPage')
       }
-      // eslint-disable-next-line
-    },[user])
-
+      //eslint-disable-next-line
+    }, [user])
 
   return (
     <div>
-      <h1>Login</h1>
-      <p>Not signed up yet? <Link to='/JoinUs'>Free Sign Up</Link></p>
+      <h1>Join</h1>
+      <p>Already have an account? <Link to='/LogIn'>Log in</Link></p>
       <form onSubmit={e => handleForm(e)}>
         <input
           value={email}
@@ -58,7 +60,7 @@ const Login = () => {
           type="password"
           placeholder="password"
         />
-        <button type="submit">Login</button>
+           <button type="submit">Sign Up</button>
         </form>
         <hr />
         <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
@@ -66,12 +68,13 @@ const Login = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="logo"
           />
-          Login With Google
+          Sign Up With Google
         </button>
+        <GDPRConsent />
         <span>{error}</span>
 
     </div>
   );
 };
 
-export default Login;
+export default JoinUs;
