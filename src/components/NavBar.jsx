@@ -1,6 +1,8 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { UserAuth } from '../context/auth_context.js'
+import './css/NavBar.css';
+import './css/UtilityClasses.css';
 
 export default function NavBar () {
   const navMenu = [
@@ -17,7 +19,7 @@ export default function NavBar () {
      'name': 'Catering',
     },
   {'id': 4,
-     'uri': '/SignUp',
+     'uri': '/JoinUs',
      'name': 'Sign Up',
  }
 ]
@@ -33,18 +35,31 @@ export default function NavBar () {
 
   return(
     <>
-      <nav>
-         {navMenu.map((menu) => {
+    <div className="nav">
+      <div className="float-left">
+        <Link to="/">
+         <img src={require('../images/header-logo.png')} alt="Zestii Kitchens main logo"/>
+        </Link>
+      </div>
+
+      <nav className="main-navigation">
+        {navMenu.map((menu) => {
           return(
-          <div key={menu.id}>
-           <NavLink to={menu.uri} end>{menu.name}</NavLink>
-          </div>
-          )
-          }
-         )}
-         {user?.displayName ?(
-         <button onClick={handleSignOut}>Logout</button> ) : ( <NavLink to='/LogIn'>Login</NavLink> )}
+            <div className="nav-item" key={menu.id}>
+            <NavLink to={menu.uri} end>{menu.name}</NavLink>
+            </div>
+           )}
+          )}
       </nav>
+
+      <div className="btn">
+         {user?.displayName ? (
+          <button onClick={handleSignOut}>Logout</button> ) : (
+          <NavLink to='/LogIn'>Login</NavLink>
+         )}
+      </div>
+
+    </div>
    </>
   )
 };

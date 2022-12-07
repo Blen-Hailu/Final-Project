@@ -20,6 +20,7 @@ const JoinUs = () => {
       alert ("User Created Successfully")
       } catch (e) {
       console.log(e.message);
+      setErrors(e.message);
       alert ("User creation failed");
     }
     console.log(createUser);
@@ -42,37 +43,42 @@ const JoinUs = () => {
     }, [user])
 
   return (
-    <div>
-      <h1>Join</h1>
-      <p>Already have an account? <Link to='/LogIn'>Log in</Link></p>
-      <form onSubmit={e => handleForm(e)}>
-        <input
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          name="email"
-          type="email"
-          placeholder="email"
-        />
-        <input
-          onChange={e => setPassword(e.target.value)}
-          name="password"
-          value={password}
-          type="password"
-          placeholder="password"
-        />
-           <button type="submit">Sign Up</button>
-        </form>
-        <hr />
-        {/* <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="logo"
-          />
-          Sign Up With Google
-        </button> */}
-        <GDPRConsent />
-        <span>{error}</span>
+    <div className="wrapper">
+      <h1>Do you want to join us?</h1>
+       <p>Sign up now to learn more about becoming Zestii cook! </p>
+        <form className="form" onSubmit={e => handleForm(e)}>
+          <label>Email:
+            <input
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              name="email"
+              type="email"
+              placeholder="email"
+            />
+          </label>
 
+          <label>Password :
+            <input
+              onChange={e => setPassword(e.target.value)}
+              name="password"
+              value={password}
+              type="password"
+              placeholder="password"
+            />
+          </label>
+          <button className='btn' type="submit">Sign Up</button>
+        </form>
+         <p>Already have an account? <Link to='/LogIn'>Log in</Link></p>
+
+          {/* <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="logo"
+            />
+            Sign Up With Google
+          </button> */}
+        <GDPRConsent />
+      <span>{error}</span>
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const InputPassword =({ register }) => {
     } = useForm();
 return (
 <>
- <label>Password</label>
+ <label>Password
   <input
    name='password'
    id="password"
@@ -34,8 +34,8 @@ return (
   })}
   error={errors.password}
 >
-
 </input>
+</label>
   {errors.password && (
   <small>{errors.password.message}</small>
   )}

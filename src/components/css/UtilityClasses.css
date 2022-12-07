@@ -1,0 +1,38 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: auto;
+  background-color: #eea09b;
+  padding:40px 40px;
+}
+.container--narrow {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.push-right {
+  margin-right: 20px;
+}
+
+.container:before,
+.container:after,
+.group:before,
+.group:after {
+  content: " ";
+  display: table;
+}
+
+.container:after,
+.group:after {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}

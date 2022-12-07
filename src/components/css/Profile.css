@@ -1,0 +1,49 @@
+.profile_wrapper {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.grid-container{
+    height: auto;
+    width:240px;
+    display: flex;
+    background-color: #fece67;
+    align-items: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 5px;
+  }
+
+.card_name {
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+
+.card_bio {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  overflow-wrap: normal;
+}
+
+.card_image {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: none;
+  text-align:center;
+  height:160px;
+  line-height:160px;
+  background-color: #1f552b;
+  color: #afd0a9;
+  margin: 8px;
+  box-shadow: 0 1px 10px rgb(23, 52, 57);
+}
+
+

@@ -6,7 +6,7 @@ export const InputEmail =({ register }) => {
    const { formState: {errors} } = useForm();
    return (
       <>
-      <label>E-mail</label>
+      <label>E-mail
         <input
         {...register("email",
         {pattern: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
@@ -15,6 +15,7 @@ export const InputEmail =({ register }) => {
         id="E-mail"
         placeholder="e-mail address"
         />
+        </label>
         {errors.email && <span>Invalid Email</span>}
       </>
    )};

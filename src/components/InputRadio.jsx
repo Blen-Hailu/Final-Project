@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 
-export const InputRadio =({option_1, option_2, option_3, query_variable, register }) => {
-     const { formState: {errors} } = useForm();
+export const InputRadio =({option_1, option_2, option_3, query_variable, register, Q }) => {
     //data
     const items = [option_1,option_2,option_3];
     //useState
@@ -18,6 +16,7 @@ export const InputRadio =({option_1, option_2, option_3, query_variable, registe
        {items.map((item) => {
           return (
             <div key={item}>
+              <label htmlFor={item}>{item}
               <input
                {...register(`${query_variable}`)}
                 id={item}
@@ -26,7 +25,7 @@ export const InputRadio =({option_1, option_2, option_3, query_variable, registe
                 onChange={handleChange}
                 checked={item === value}
               />
-              <label htmlFor={item}>{item}</label>
+             </label>
             </div>
           );
         })}

@@ -16,6 +16,7 @@ const Login = () => {
       await signIn(email, password);
       setLoggedIn(true);
       } catch (e) {
+      setErrors(e.message);
       console.log(e.message);
     }
     console.log(signIn);
@@ -40,25 +41,30 @@ const Login = () => {
 
 
   return (
-    <div>
+    <div className="wrapper">
       <h1>Login</h1>
-      <p>Not signed up yet? <Link to='/JoinUs'>Free Sign Up</Link></p>
-      <form onSubmit={e => handleForm(e)}>
-        <input
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          name="email"
-          type="email"
-          placeholder="email"
-        />
-        <input
-          onChange={e => setPassword(e.target.value)}
-          name="password"
-          value={password}
-          type="password"
-          placeholder="password"
-        />
-        <button type="submit">Login</button>
+      <p>Not signed up yet? <Link to='/JoinUs'>Sign up here</Link></p>
+      <form className="form" onSubmit={e => handleForm(e)}>
+       <label>Email:
+          <input
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            name="email"
+            type="email"
+            placeholder="email"
+          />
+        </label>
+
+        <label>Password:
+          <input
+            onChange={e => setPassword(e.target.value)}
+            name="password"
+            value={password}
+            type="password"
+            placeholder="password"
+          />
+        </label>
+        <button className="btn" type="submit">Login</button>
         </form>
         <hr />
         {/* <button className="googleBtn" type="button" onClick={handleGoogleSignIn}>

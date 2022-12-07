@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  max-width: 1440px;
+  text-align: left;
+  font-size: 1rem;
+  height: 15vmin;
+}
+
+.main-navigation {
+  width: auto;
+  background-color: transparent;
+  opacity:1;
+  visibility: visible;
+}
+
+.nav-item {
+  text-align: center;
+  display:inline-block;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+

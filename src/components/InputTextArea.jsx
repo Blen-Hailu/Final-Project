@@ -7,7 +7,7 @@ export const InputTextArea =({title, query_variable, register, max }) => {
   const onChange = (data) => console.log(data);
    return (
       <>
-       <label>{title}</label>
+       <label>{title}
          <textarea
          {...register(`${query_variable}`,
           {required: true,
@@ -18,6 +18,7 @@ export const InputTextArea =({title, query_variable, register, max }) => {
           id={title}
           placeholder={title}
          />
+         </label>
           {errors?.name && errors.name.message}
       </>
   )};
