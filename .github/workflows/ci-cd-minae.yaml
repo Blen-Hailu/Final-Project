@@ -36,7 +36,7 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
         env:
-          NETLIFY_AUTH_TOKEN_MINAE: ${{ secrets.NETLIFY_AUTH_TOKEN_MINAE }}
-          NETLIFY_SITE_ID_MINAE: ${{ secrets.NETLIFY_SITE_ID_MINAE }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_MINAE }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_MINAE }}
         timeout-minutes: 1
 
