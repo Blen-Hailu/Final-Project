@@ -1,7 +1,8 @@
 .page-banner {
   max-width: 1440px;
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
   height: 350px;
+  line-height: 350px;
   background-color: azure;
 }
