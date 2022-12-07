@@ -20,6 +20,7 @@ const JoinUs = () => {
       alert ("User Created Successfully")
       } catch (e) {
       console.log(e.message);
+      setErrors(e.message);
       alert ("User creation failed");
     }
     console.log(createUser);

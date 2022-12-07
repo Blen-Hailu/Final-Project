@@ -92,13 +92,15 @@ li {
   max-width: 1440px;
   margin: 0 auto;
   height: auto;
-  padding:20px 15px;
+  padding:20px 60px;
 }
 
 .form {
+  width: 80%;
   display: flex;
   flex-flow: column;
   margin: 0, auto;
+  text-align: left;
   align-items: center;
 }
 
@@ -117,8 +119,7 @@ li {
 }
 
 label{
-  width: 85%;
-  justify-content: space-evenly;
+width: 80%,
 }
 
 input[type="text"],
@@ -131,7 +132,7 @@ input[type="tel"]{
 }
 
 input[type="textarea"]{
-  width: 65%;
+  width: 80%;
   height: 80px;
 }
 

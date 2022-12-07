@@ -2,7 +2,8 @@
   max-width: 1440px;
   margin: 0 auto;
   height: auto;
-  padding:20px 40px;
+  background-color: #eea09b;
+  padding:40px 40px;
 }
 .container--narrow {
   max-width: 960px;

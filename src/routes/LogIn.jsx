@@ -16,6 +16,7 @@ const Login = () => {
       await signIn(email, password);
       setLoggedIn(true);
       } catch (e) {
+      setErrors(e.message);
       console.log(e.message);
     }
     console.log(signIn);
