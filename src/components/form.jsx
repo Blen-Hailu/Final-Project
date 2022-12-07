@@ -71,6 +71,7 @@ const addData = async function() {
 
 const handleSubmit = (event) => {
   event.preventDefault();
+  alert('Thank you for registering!' )
   const requestData = {first_name : firstName, last_name : lastName, email_address:email, service_type: role, street_address:streetAddress, zip_code: zipcode, city:city, country:country, phone_number:phoneNumber }  
     console.log (requestData);
      addData(requestData);
