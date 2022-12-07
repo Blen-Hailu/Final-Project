@@ -48,15 +48,15 @@ export default function CompleteRegistration () {
           <InputTextOptional register={register} title='Alcoholpassi certificate number' query_variable='alcoholpassi' type='text'/>
 
           {/*activities*/}
-          <InputRadio register={register} Q={'What kind of activity are you interested in as a cook?'} option_1='Pop Up Events' option_2='Catering Cook' option_3='Workshop Instructor' query_variable='activities'/>
+          <InputRadio register={register} Q={'What kind of activity are you interested in as a cook?'} option_1='Pop Up Events' option_2='Catering Cook' option_3='Workshop Instructor' query_variable='activities' type='radio'/>
 
           {/*Bio*/}
-          <InputTextArea register={register} title='Tell us about your self!' query_variable='bio' max={300} />
+          <InputTextArea register={register} title='Tell us about your self!' query_variable='bio' max={300} type='text' />
           {/* Profile image upload
           <ImageUpload register={register} query_variable='profile_picture' /> */}
 
           {/*Signature dish Text*/}
-          <InputTextArea register={register} title='Tell us about your signature dish!' query_variable='signature_dishes' max={300} />
+          <InputTextArea register={register} title='Tell us about your signature dish!' query_variable='signature_dishes' max={300} type='text' />
           {/* Signature dish image upload
           <ImageUpload register={register} query_variable='signature_dishes_picture' /> */}
 
