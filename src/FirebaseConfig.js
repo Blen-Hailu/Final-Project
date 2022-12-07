@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIRECASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyCkl16MJ4uFw1tH9dwlSHZH_S1P7QLMI5o",
+  authDomain:"zestiikitchens-7c56d.firebaseapp.com",
+  projectId: "zestiikitchens-7c56d",
+  storageBucket:"zestiikitchens-7c56d.appspot.com",
+  messagingSenderId:"333355157406",
+  appId:"1:333355157406:web:195f59c397387cb3d0388f",
+  measurementId:"G-PR9P9PSLT1",
 };
 
 // Initialize Firebase
