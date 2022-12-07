@@ -1,7 +1,6 @@
 import React from "react";
 import './css/UtilityClasses.css';
 import './css/Footer.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default function Footer () {
