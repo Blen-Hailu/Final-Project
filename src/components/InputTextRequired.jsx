@@ -7,7 +7,7 @@ export const InputTextRequired =({title, query_variable, register, type }) => {
   const onChange = (data) => console.log(data);
    return (
       <>
-       <label>{title}</label>
+       <label>{title}
          <input
          {...register(`${query_variable}`,
           {required: true,
@@ -19,6 +19,7 @@ export const InputTextRequired =({title, query_variable, register, type }) => {
           id={title}
           placeholder={title}
          />
+         </label>
           {errors?.name && errors.name.message}
       </>
   )};

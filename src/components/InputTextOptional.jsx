@@ -7,7 +7,7 @@ export const InputTextOptional =({ title, query_variable, register }) => {
   const onChange = (data) => console.log(data);
    return (
       <>
-       <label>{title}</label>
+       <label>{title}
          <input
          {...register(`${query_variable}`,
           {required: false,
@@ -18,6 +18,7 @@ export const InputTextOptional =({ title, query_variable, register }) => {
           id={title}
           placeholder={title}
          />
+         </label>
           {errors?.name && errors.name.message}
       </>
   )};
